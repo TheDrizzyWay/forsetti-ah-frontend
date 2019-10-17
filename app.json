@@ -1,0 +1,19 @@
+{
+  "name": "forsetti-ah-frontend",
+  "description": "A web community of like minded authors to foster inspiration and innovation by leveraging the modern web.",
+  "repository": "https://github.com/andela/forsetti-ah-frontend",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "scripts": {
+    "heroku-postbuild": "webpack --config webpack.prod.js"
+  },
+  "stack": "heroku-18"
+}

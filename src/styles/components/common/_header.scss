@@ -1,0 +1,81 @@
+.header {
+  background-color: $primary-color;
+  color: $white-color;
+  height: 5rem;
+  padding: 1.5rem;
+
+  &-links {
+    @media screen and (max-width: 917px) {
+      display: none;
+    }
+  }
+
+  &-links-list {
+    list-style: none;
+  }
+
+  & li {
+    display: inline;
+    padding-left: 1.5rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  &-logo-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 319px) {
+      font-size: 0.7rem;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 575px) {
+      font-size: 1rem;
+    }
+
+    @media screen and (min-width: 575px) and (max-width: 917px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-nav {
+
+    &-hamburger {
+      margin-right: 1.8rem;
+      font-size: 0.8rem;
+      display: none;
+      background-color: $white-color;
+      color: $primary-color;
+
+      &:not(:disabled):not(.disabled):active {
+        cursor: pointer;
+        color: $primary-color;
+        background-color: $white-color;
+        border-color: $primary-color;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $primary-color;
+        background-color: $white-color;
+        border-color: $primary-color;
+      }
+
+      @media screen and (max-width: 917px) {
+        display: block;
+      }
+    }
+
+    &-menu {
+      @media screen and (max-width: 917px) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 975px) {
+    font-size: 0.5rem;
+  }
+}

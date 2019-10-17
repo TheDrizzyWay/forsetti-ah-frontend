@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders correctly 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="footer-upper-section"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="footer-logo col-sm-12 col-lg-4"
+      >
+        <h6
+          className="footer-logo-text"
+        >
+          Authors Haven
+        </h6>
+      </div>
+      <div
+        className="footer-links col-sm-4"
+      >
+        <div
+          className="footer-links-box"
+        >
+          <ul
+            className="footer-links-box-list"
+          >
+            <li>
+              Tech
+            </li>
+            <li>
+              Philosophy
+            </li>
+            <li>
+              Life
+            </li>
+            <li>
+              Politics
+            </li>
+          </ul>
+          <ul
+            className="footer-links-box-list"
+          >
+            <li>
+              Politics
+            </li>
+            <li>
+              Culture
+            </li>
+            <li>
+              Nature
+            </li>
+            <li>
+              Music
+            </li>
+          </ul>
+          <ul
+            className="footer-links-box-list"
+          >
+            <li>
+              Finance
+            </li>
+            <li>
+              Adventure
+            </li>
+            <li>
+              Motivational
+            </li>
+            <li>
+              Spiritual
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="footer-top-logo col-sm-4"
+      >
+        <i
+          className="fas fa-arrow-up footer-top-logo-icon"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="footer-lower-section"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <p
+          className="footer-lower-section-text"
+        >
+           © 2019
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

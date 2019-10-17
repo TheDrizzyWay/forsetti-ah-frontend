@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VerticalListItems /> renders correctly when there are props 1`] = `
+<ul>
+  <li>
+    Tech
+  </li>
+  <li>
+    Philosophy
+  </li>
+  <li>
+    Life
+  </li>
+  <li>
+    Politics
+  </li>
+</ul>
+`;

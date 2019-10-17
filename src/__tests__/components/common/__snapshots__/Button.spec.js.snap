@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonComponent  /> renders the ButtonComponent  correctly 1`] = `
+<button
+  aria-label={null}
+  className="btn btn-secondary"
+  onClick={[Function]}
+/>
+`;

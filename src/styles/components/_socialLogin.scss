@@ -1,0 +1,15 @@
+.google-login img,
+.facebook-login img,
+.twitter-login img {
+  display: inline-block;
+  height: 2rem;
+  margin-right: 1.5rem;
+  width: 2rem;
+}
+
+
+.social-login {
+  display: flex;
+  margin: 3rem auto;
+  width: 9rem;
+}

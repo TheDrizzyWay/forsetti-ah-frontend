@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Man Reading Icon  should render ManReadingIcon correctly 1`] = `ShallowWrapper {}`;

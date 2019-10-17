@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get single article component should render 404 page when single article not found 1`] = `ShallowWrapper {}`;
+
+exports[`Get single article component should render get single article component 1`] = `ShallowWrapper {}`;

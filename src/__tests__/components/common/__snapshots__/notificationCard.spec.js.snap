@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Card should render NotificationCard correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Notification Card should render NotificationCard with article type props 1`] = `ShallowWrapper {}`;
+
+exports[`Notification Card should render NotificationCard with comment type props 1`] = `ShallowWrapper {}`;

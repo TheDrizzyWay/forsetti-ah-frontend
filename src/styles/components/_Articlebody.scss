@@ -1,0 +1,24 @@
+.social-icon {
+    width: 1.5rem;
+}
+.article-body {
+    line-height: 2rem;
+    font-weight: 300;
+}
+.article-image{
+    width: 100%;
+    object-fit: contain;
+    height: 30rem;
+}
+@media screen and (max-width: 575px) {
+    .article-title {
+        font-size: 6vw;
+    }
+}
+.bookmarkstyle{
+    cursor: pointer;
+    border: none;
+}
+.bookmark {
+    outline: none;
+}

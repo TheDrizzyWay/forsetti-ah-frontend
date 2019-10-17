@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VerticalListItems /> renders correctly when there are props 1`] = `
+<ul>
+  <li>
+    <button
+      aria-label={null}
+      className="navbar-button-item btn btn-primary"
+      onClick={[Function]}
+    >
+      Tech
+    </button>
+  </li>
+  <li>
+    <button
+      aria-label={null}
+      className="navbar-button-item btn btn-primary"
+      onClick={[Function]}
+    >
+      Philosophy
+    </button>
+  </li>
+  <li>
+    <button
+      aria-label={null}
+      className="navbar-button-item btn btn-primary"
+      onClick={[Function]}
+    >
+      Life
+    </button>
+  </li>
+  <li>
+    <button
+      aria-label={null}
+      className="navbar-button-item btn btn-primary"
+      onClick={[Function]}
+    >
+      Politics
+    </button>
+  </li>
+</ul>
+`;

@@ -1,0 +1,83 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "node": true,
+        "es6": true,
+        "browser": true,
+        "jest": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+        "max-len": [1, 120, 2, { "ignoreComments": true }],
+        "jsx-quotes": ["error", "prefer-single"],
+        "react/prop-types": 0,
+        "no-unused-vars": 0,
+        "require-jsdoc": [2, {
+          "require": {
+            "FunctionDeclaration": false,
+            "MethodDefinition": false,
+            "ClassDeclaration": false
+          }
+          }],
+        "comma-dangle": 0,
+        "jsx-a11y/no-noninteractive-element-to-interactive-role": 1,
+        "import/no-named-as-default": 0,
+        "no-return-assign": "off",
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "components": [
+                    "Link"
+                ],
+                "specialLink": [
+                    "to"
+                ],
+                "aspects": [
+                    "noHref",
+                    "invalidHref",
+                    "preferButton"
+                ]
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "react/prefer-stateless-function": [
+            0
+        ],
+        "no-useless-constructor": 1,
+        "curly": [
+            "error",
+            "multi-line"
+        ],
+        "react/no-danger": 0,
+        "jsx-a11y/interactive-supports-focus": 0
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "globals": {
+        "localStorage": true,
+        "document": true,
+        "require": true,
+        "window": true
+    }
+}

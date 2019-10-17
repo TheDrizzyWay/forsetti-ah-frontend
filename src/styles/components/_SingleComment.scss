@@ -1,0 +1,27 @@
+.criticism {
+  background-color: #6295bc;
+  border-radius: 5px;
+  float: right;
+  height: 40px;
+  color: #fff;
+  padding: 10px;
+  margin-right: 30px;
+}
+
+.sbox {
+  width: 80%;
+  margin-left: 20px;
+  padding-bottom: 0;
+}
+
+.reply-btn {
+  float: right;
+  min-width: 90px;
+}
+
+@media (max-width: 1052px) {
+  .sbox {
+    width: 100%;
+    margin-left: auto;
+  }
+}

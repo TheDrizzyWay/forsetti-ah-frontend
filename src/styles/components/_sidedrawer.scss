@@ -1,0 +1,85 @@
+.sidedrawer {
+  display: none;
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 900;
+  background-color: $primary-color;
+  clip-path: polygon(37% 0, 100% 0, 100% 100%, 37% 100%, 0 49%);
+  -webkit-clip-path: polygon(37% 0, 100% 0, 100% 100%, 37% 100%, 0 49%);
+  transition: opacity .2s ease-out;
+
+  &-nav {
+    position: absolute;
+    right: 2rem;
+    width: 50%;
+
+    &-close-button {
+      background-color: $white-color;
+      color: $primary-color;
+    }
+
+    &-close-icon {
+      position: absolute;
+      right: 1.4rem;
+      top: 1.5rem;
+
+      button,
+      i {
+        background-color: $white-color;
+        color: $primary-color;
+        font-size: 0.8rem;
+
+        &:not(:disabled):not(.disabled):active {
+          background-color: $white-color;
+          border-color: $primary-color;
+          color: $primary-color;
+          cursor: pointer;          
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        & button, & i {
+          color: $primary-color;
+          background-color: $white-color;
+        }
+      }
+    }
+    
+    &-links {
+      position: absolute;
+      top: 4.5rem;
+
+      &-list {
+        color: $white-color;
+        list-style: none;
+        text-transform: uppercase;
+        
+        & li {
+          margin-bottom: 2rem;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &-menu-list {
+      list-style: none;
+
+      li {
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      font-size: 0.3rem;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 375px) {
+      font-size: 0.8rem;
+    }
+  }
+}

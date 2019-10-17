@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification page should render Notification page component 1`] = `ShallowWrapper {}`;
+
+exports[`Notification page should render Notification page component with condition 1`] = `ShallowWrapper {}`;
+
+exports[`Notification page should render Notification page component with condition 2`] = `ShallowWrapper {}`;

@@ -1,0 +1,30 @@
+.artimage {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.artlabel {
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 5px;
+    padding: 5px 5px;
+    img {
+      height: 50px;
+    }
+}
+
+.bold-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.preview {
+  max-width: 70%;
+  max-height: 400px;
+}

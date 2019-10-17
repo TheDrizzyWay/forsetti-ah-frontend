@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article body component Simulate a click on the bookmark button 1`] = `ShallowWrapper {}`;
+
+exports[`Article body component should render comment component correctly 1`] = `ShallowWrapper {}`;

@@ -1,0 +1,68 @@
+.login-form {
+  margin-top: 5rem;
+
+  &-supplementary {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+
+   &-forgot {
+     cursor: pointer;
+     color: $primary-color;
+   }
+
+    &-remember {
+      color: $primary-color;
+      margin-left: 1.5rem;
+    }
+  }
+
+  &-header-text {
+    color: $primary-color;
+    margin-bottom: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &-input {
+    margin-bottom: 1.5rem;
+  }
+
+  &-placeholder-text {
+    background-color: $primary-color;
+    color: $white-color;
+    font-size: 0.7rem;
+    width: 7rem;
+
+    @media screen and (max-width:425px) {
+      width: 5rem;
+    }
+  }
+
+  &-btn {
+    background-color: $primary-color;
+    color: $white-color;
+    display: block;
+    margin: 3rem auto;
+    text-transform: uppercase;
+    width: 9rem;
+
+    @media screen and (max-width:425px) {
+      margin: 3rem auto;
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+
+  @media screen and (max-width:425px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    margin: 5rem auto;
+    width: 15rem;
+  }
+}

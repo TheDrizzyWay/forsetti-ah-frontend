@@ -1,0 +1,16 @@
+.login-modal {
+ max-width: 45rem;
+ min-width: 15rem;
+ margin-top: 7rem;
+ overflow-x: scroll;
+
+ &-man-reading-icon {
+   margin-top: 7rem;
+
+   & img { height: 13rem; }
+
+   @media screen and (max-width: 575px) {
+    display: none;
+  }
+ }
+}

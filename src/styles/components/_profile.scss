@@ -1,0 +1,82 @@
+.Profile{
+  min-height: 100vh;
+  .profile-image {
+    height: 150px;
+    max-width: 150px!important;
+    margin: auto;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: relative;
+  }
+    .list {
+      font-size: 10px;
+    }
+
+    .btn-color{
+        background-color: #40617b !important;
+        border-color: none;
+    }
+
+    .borderColor {
+        border-right-color: red;
+    }
+
+    .card-hover {
+      cursor: pointer;
+      transition-duration: 1s;
+
+      &:hover{
+        transform: scale(1.2);
+      }
+    }
+}
+
+.EditProfile {
+  min-height: 70vh;
+
+  .edit-form {
+     input {
+       height: 50px;
+       border: 1px solid #40617b;
+       outline: none;
+     }
+     textarea {
+       resize: none;
+       border: 1px solid #40617b;
+     }
+     .edit-btn {
+       background-color: #40617b;
+       border-color: #40617b;
+       &:active {
+        background-color: #40617b;
+       }
+       &:hover {
+        background-color: #40617b;
+       }
+     }
+  }
+
+  .profile-image {
+    height: 150px;
+    max-width: 150px!important;
+    margin: auto;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+}
+
+.readstats {
+  &-h5 {
+    margin: 3rem 0 0 1rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  &-body {
+    padding: 0 1rem 1rem 1rem;
+  }
+}

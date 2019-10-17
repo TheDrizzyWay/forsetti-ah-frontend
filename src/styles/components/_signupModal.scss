@@ -1,0 +1,49 @@
+.modal-dialog{
+    max-width: 40rem;
+}
+
+.signup-form-group{
+  margin-top: 1.2rem;
+}
+
+.signup-form-input{
+  border-radius: 0;
+  height: 40px;
+  width: 24rem;
+}
+
+.signup-form-header-text {
+  color: $primary-color;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+::placeholder {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.signup-form-label{
+  background-color: $primary-color;
+  border: 3px solid $primary-color;
+  border-radius: 0;
+  color: $white-color;
+  font-weight: bold;
+  font-size: 0.7rem;
+  width: 6rem;
+}
+
+.signup-form-header{
+  color: $secondary-color;
+  text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+  .signup-form-group{ width: 100%; }
+
+  .w-100{ width: 100%; }
+
+  .modal-dialog{ margin-top: 50px; }
+
+}
