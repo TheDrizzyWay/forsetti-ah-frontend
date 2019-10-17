@@ -14,5 +14,3 @@ by leveraging the modern web.
 ---
 
 ### Links
-Link to the staging application can be found [here](https://forsetti-ah-frontend-staging.herokuapp.com)
-Link to the production application can be found [here](https://forsetti-ah-frontend.herokuapp.com)
