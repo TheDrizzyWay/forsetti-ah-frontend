@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { google, facebook, twitter } from '../assets/images';
+import { google, facebook, twitter } from '../assets';
 
 class SocialLogin extends Component {
   render() {

@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { navBarReducer } from './navBarReducers';
 import { modalReducer } from './modalReducer';
 import { authReducer } from './authReducer';
-import { articleReducer } from './articleReducers';
+import { articleReducer } from './articlesReducer';
 import singleArticleReducer from './articleReducer';
 import createArticleReducer from './createArticle.reducers';
 import { resetPasswordReducers } from './resetPasswordReducers';

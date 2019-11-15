@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { InputGroupAddon, InputGroup, Input, InputGroupText, Spinner } from 'reactstrap';
+import {
+  InputGroupAddon, InputGroup, Input, InputGroupText, Spinner
+} from 'reactstrap';
 import { toast } from 'react-toastify';
 import ToastMessage from './common/ToastMessage';
 import ButtonComponent from './common/Button';
@@ -114,9 +116,7 @@ export class SignUp extends React.Component {
 
           <InputGroup className='signup-form-group'>
             <InputGroupAddon addonType='prepend'>
-              <InputGroupText
-                className='signup-form-label'
-              >
+              <InputGroupText className='signup-form-label'>
                       FIRSTNAME
               </InputGroupText>
             </InputGroupAddon>
