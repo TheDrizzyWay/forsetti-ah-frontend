@@ -13,6 +13,7 @@ const articlesReducer = (state = initialState, action) => {
     case GET_ARTICLES_BEGIN:
       return {
         ...state,
+        // fix below later
         articles: [],
         isLoading: true
       };

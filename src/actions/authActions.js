@@ -136,10 +136,8 @@ const signUpUser = user => async (dispatch) => {
     return dispatch(signupFailure(message));
   }
 };
-const logoutUser = () => async (dispatch) => {
-  window.localStorage.removeItem('token');
-  window.localStorage.removeItem('rememberToken');
-  await dispatch(logoutHandler());
+const logoutUser = () => (dispatch) => {
+  dispatch(logoutHandler());
 };
 
 export {

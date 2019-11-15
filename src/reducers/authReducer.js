@@ -4,7 +4,10 @@ import {
   SIGNUP_BEGIN,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
-  LOGOUT_USER
+  LOGOUT_USER,
+  LOGIN_USER_BEGIN,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE
 } from '../action-types';
 
 const initialState = {
@@ -26,11 +29,11 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_USER_BEGIN':
+    case LOGIN_USER_BEGIN:
       return {
         isLoading: true,
       };
-    case 'LOGIN_USER_SUCCESS':
+    case LOGIN_USER_SUCCESS:
       return {
         isLoading: false,
         status: action.payload.status,
@@ -39,7 +42,7 @@ const authReducer = (state = initialState, action) => {
         token: action.payload.data.token,
         rememberToken: action.rememberLogin
       };
-    case 'LOGIN_USER_FAILURE':
+    case LOGIN_USER_FAILURE:
       if (action.payload.status === 400) {
         return {
           isLoading: false,

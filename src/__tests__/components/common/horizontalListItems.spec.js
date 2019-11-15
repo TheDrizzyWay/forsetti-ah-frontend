@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { HorizontalListItems } from '../../../components';
-import listItems from '../../../testUtils/testsMockData/verticalListItems.mock-data';
+import listItems from '../../../__mocks__/testsMockData/navBarItems.mock-data';
 
 describe('<HorizontalListItems />', () => {
   let component;

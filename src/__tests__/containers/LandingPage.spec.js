@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
+import { articles as articlesMock } from '../../__mocks__/testsMockData/articles.mock-data';
 import { LandingPage } from '../../containers/LandingPage';
 
 describe('<LandingPage />', () => {

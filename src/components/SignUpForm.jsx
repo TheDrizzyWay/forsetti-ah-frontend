@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   InputGroupAddon, InputGroup, Input, InputGroupText, Spinner
@@ -8,9 +8,9 @@ import ToastMessage from './common/ToastMessage';
 import ButtonComponent from './common/Button';
 import { signUpUser } from '../actions';
 import FormErrorText from './common/FormErrorText';
-import { checkInputValues, clearErrorMessages } from '../helpers/signUpFormValidation';
+import { checkInputValues, clearErrorMessages } from '../utils/signUpFormValidation';
 
-export class SignUp extends React.Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,10 +56,9 @@ export class SignUp extends React.Component {
       const { dispatch } = this.props;
       await dispatch(signUpUser(data));
 
-      const { message, token } = this.props;
+      const { message } = this.props;
 
       if (message === 'User registered successfully') {
-        window.localStorage.setItem('token', JSON.stringify(token));
         toast(<ToastMessage message={`${message}. Redirecting...`} />, {
           type: 'success',
           closeButton: false,
@@ -220,13 +219,7 @@ const mapStateToProps = state => ({
   isLoading: state.auth.isLoading,
   submit: state.auth.submit,
   message: state.auth.message,
-  token: state.auth.token,
-  user: state.auth.user,
-  firstname: state.auth.firstname,
-  lastname: state.auth.lastname,
-  password: state.auth.password,
-  email: state.auth.email,
-  username: state.auth.username
+  user: state.auth.user
 });
 
 export default connect(mapStateToProps)(SignUp);

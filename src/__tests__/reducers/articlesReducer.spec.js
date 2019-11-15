@@ -1,7 +1,7 @@
-import { articleReducer, initialState } from '../../reducers/articleReducers';
+import { articleReducer, initialState } from '../../reducers/articlesReducer';
 
 import { GET_ARTICLES_BEGIN, GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL } from '../../action-types';
-import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
+import { articles as articlesMock } from '../../__mocks__/testsMockData/articles.mock-data';
 
 describe('articleReducers', () => {
   test('should return initial state', () => {
