@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import VerticalListItems from './common/VerticalListItems';
 import NavBarItems from './common/NavBarItems';
 import Backdrop from './common/Backdrop';
@@ -9,14 +9,16 @@ import {
   openModalAction,
   hideSideDrawerAction,
   openTagsModal,
-  openSignupModalAction
+  openSignupModalAction,
+  logoutUser
 } from '../actions';
 
 const SideDrawer = ({
   show,
   closed,
   dispatch,
-  history
+  history,
+  auth
 }) => {
   const openLoginModal = () => {
     dispatch(openModalAction());
@@ -28,9 +30,15 @@ const SideDrawer = ({
   };
   const openArticleTagsModal = () => dispatch(openTagsModal());
 
-  const closeSidebar = (path) => {
-    history.push(path);
+  const closeSidebar = (path, customState = {}) => {
+    history.push(path, customState);
     dispatch(hideSideDrawerAction());
+  };
+
+  const sideBarLogout = () => {
+    dispatch(hideSideDrawerAction());
+    dispatch(logoutUser());
+    window.location.reload();
   };
 
   const items = [
@@ -42,15 +50,15 @@ const SideDrawer = ({
     { no: 6, name: 'Music' }
   ];
 
-
   const menuItems = [];
 
   const isLoggedIn = () => {
-    const token = localStorage.getItem('token');
-    if (history.location.pathname === '/article/new') {
+    const { token } = auth;
+    if (token && history.location.pathname === '/article/new') {
       return menuItems.push(
         { no: 1, text: 'Publish', onClick: openArticleTagsModal },
-        { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') }
+        { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') },
+        { no: 3, text: 'Home', onClick: () => closeSidebar('/', { from: 'new' }) }
       );
     }
 
@@ -58,7 +66,8 @@ const SideDrawer = ({
       return menuItems.push(
         { no: 1, text: 'Write Post', onClick: () => closeSidebar('/article/new') },
         { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') },
-        { no: 3, text: 'Profile', onClick: () => closeSidebar('/profile') }
+        { no: 3, text: 'Profile', onClick: () => closeSidebar('/profile') },
+        { no: 4, text: 'Logout', onClick: () => sideBarLogout() }
       );
     }
     return menuItems.push(
@@ -83,7 +92,7 @@ const SideDrawer = ({
         <div className='sidedrawer-nav'>
           <div className='sidedrawer-nav-close-icon'>
             <Button onClick={closed} className='sidedrawer-nav-close-button'>
-              <i className='far fa-window-close' />
+              <i className='fas fa-window-close' />
             </Button>
           </div>
           <div className='sidedrawer-nav-links'>
@@ -95,5 +104,10 @@ const SideDrawer = ({
     </React.Fragment>
   );
 };
-const SideDrawerComponent = connect()(withRouter((SideDrawer)));
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+const SideDrawerComponent = connect(mapStateToProps)(withRouter((SideDrawer)));
 export { SideDrawerComponent, SideDrawer };

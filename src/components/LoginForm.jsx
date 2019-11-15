@@ -15,7 +15,6 @@ import SocialLogin from './SocialLogin';
 import Button from './common/Button';
 import FormErrorText from './common/FormErrorText';
 import ToastMessage from './common/ToastMessage';
-import { google, facebook, twitter } from '../assets';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -54,7 +53,7 @@ class LoginForm extends Component {
         closeButton: false,
         hideProgressBar: true,
         onClose: () => this.LoginUser(),
-        autoClose: 0,
+        autoClose: 2000,
       });
     } else if (status === 400) {
       const firstErrorKey = Object.keys(message)[0];
@@ -189,10 +188,9 @@ Forgot password?
   }
 }
 
-const mapStateToProps = (state) => {
-  const { auth } = state;
-  return { auth };
-};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
 const Login = connect(mapStateToProps)(withRouter(LoginForm));
 export {
