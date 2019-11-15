@@ -11,8 +11,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginUser, openModal, closeModalAction } from '../actions';
+import SocialLogin from './SocialLogin';
 import Button from './common/Button';
-import Link from './common/Link';
 import FormErrorText from './common/FormErrorText';
 import ToastMessage from './common/ToastMessage';
 import { google, facebook, twitter } from '../assets';
@@ -121,12 +121,12 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { auth: { isLoading } } = this.props;
+    const { auth: { isLoading, token } } = this.props;
     const {
       email, password, emailError, passwordError, isEmailValid, isPasswordValid
     } = this.state;
     const spinner = isLoading ? (<Spinner style={{ width: '1.5rem', height: '1.5rem' }} />) : null;
-    const disabled = !(isEmailValid && isPasswordValid) || isLoading;
+    const disabled = !(isEmailValid && isPasswordValid) || isLoading || token;
     return (
       <div className='login-form'>
         <h4 className='login-form-header-text'>Welcome back</h4>
@@ -183,23 +183,7 @@ Forgot password?
           {' '}
           {spinner}
         </Button>
-        <div className='social-login'>
-          <div className='google-login'>
-            <a href='https://drizzyforsettibackend.herokuapp.com/api/v1/auth/google'>
-              <img src={google} alt='Google' />
-            </a>
-          </div>
-          <div className='facebook-login'>
-            <a href='https://drizzyforsettibackend.herokuapp.com/api/v1/auth/facebook'>
-              <img src={facebook} alt='Facebook' />
-            </a>
-          </div>
-          <div className='twitter-login'>
-            <a href='https://drizzyforsettibackend.herokuapp.com/api/v1/auth/twitter'>
-              <img src={twitter} alt='Twitter' />
-            </a>
-          </div>
-        </div>
+        <SocialLogin />
       </div>
     );
   }

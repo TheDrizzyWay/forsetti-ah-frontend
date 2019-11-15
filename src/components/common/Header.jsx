@@ -27,6 +27,7 @@ const Header = (props) => {
       count = 0
     },
     history,
+    auth
   } = props;
   const openLoginModal = () => dispatch(openModalAction());
   const openSignupModal = () => dispatch(openSignupModalAction());
@@ -47,14 +48,14 @@ const Header = (props) => {
   ];
 
   const menuItems = [];
-  let token;
   const isLoggedIn = () => {
-    token = localStorage.getItem('token');
-    if (history.location.pathname === '/article/new') {
+    const { token } = auth;
+    const currentPath = history.location.pathname;
+    if (token && currentPath === '/article/new') {
       return menuItems.push({ no: 1, text: 'Publish', onClick: openArticleTagsModal });
     }
 
-    if (token) {
+    if (token && currentPath !== '/article/new') {
       return menuItems.push({ no: 1, text: 'Write Post', onClick: () => history.push('/article/new') });
     }
     return (
@@ -64,6 +65,7 @@ const Header = (props) => {
       )
     );
   };
+
   isLoggedIn();
 
   return (
@@ -79,7 +81,7 @@ const Header = (props) => {
       <div className='header-nav'>
         <div className='row mr-1 mr-md-2'>
           {
-          token && (
+          auth.token && (
           <div className='mr-3 mr-md-2 d-sm-none d-md-block'>
             <Link to='/profiles/notification' style={{ color: 'white', fontSize: '1rem', textDecoration: 'none' }}>
               <p className='d-sm-none d-md-block notification-icon'>
@@ -92,24 +94,24 @@ const Header = (props) => {
           </div>
           )
           }
-          <div className={`${token ? 'col-md-6 text-center' : 'col-md-12'}`}>
+          <div className={`${auth.token ? 'col-md-6 text-center' : 'col-md-12'}`}>
             <NavBarItems menuItems={menuItems} className='header-nav-menu' />
           </div>
           {
-            token && (
+            auth.token && (
             <div className='col-md-2 text-md-left text-center d-none d-md-block pb-2'>
               <UncontrolledDropdown>
-                <DropdownToggle style={{ background: 'none', border: 'none' }}>
+                <DropdownToggle style={{ background: 'none', border: 'none', padding: '0.05rem 1rem' }}>
                   <img
                     src={profilepix}
                     alt='profilephoto'
                     className='header-nav-menu rounded-0'
-                    style={{ width: '2rem' }}
+                    style={{ width: '2.25rem' }}
                   />
                 </DropdownToggle>
-                <DropdownMenu>
+                <DropdownMenu className='profile-dropdown'>
                   <Link to='/profile/' style={{ color: 'black', fontSize: '1rem', textDecoration: 'none' }}>
-                    <DropdownItem style={{ backgroundColor: 'transparent', color: 'black' }}>Profile</DropdownItem>
+                    <DropdownItem className='profile'>Profile</DropdownItem>
                   </Link>
                   <DropdownItem divider />
                   <DropdownItem onClick={Logout}>Logout</DropdownItem>
@@ -131,7 +133,8 @@ const Header = (props) => {
 };
 
 const mapStateToProps = state => ({
-  notifications: state.notifications
+  notifications: state.notifications,
+  auth: state.auth
 });
 
 const HeaderComponent = connect(mapStateToProps)(withRouter(Header));

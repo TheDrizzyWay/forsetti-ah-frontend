@@ -7,21 +7,20 @@ class AuthSocial extends Component {
    * Save token to storage and redirect user
    * param {string} token
    */
-  LoginUser = (token) => {
-    window.localStorage.setItem('token', token);
+  LoginUser = () => {
     const { history, dispatch } = this.props;
     dispatch(closeModalAction());
-    history.push('/');
+    history.push('/', { from: 'social' });
   }
 
   /**
    * Get user data from url
    */
   userDataHandler = () => {
-    const { location, dispatch, token } = this.props;
+    const { location, dispatch } = this.props;
     const userArray = location.search.split('&');
     dispatch(getUserData(userArray));
-    this.LoginUser(token);
+    this.LoginUser();
   }
 
   render() {
@@ -40,8 +39,7 @@ const mapStateToProps = state => ({
   lastname: state.auth.lastname,
   username: state.auth.username,
   email: state.auth.email,
-  error: state.auth.error,
-  token: state.auth.token
+  error: state.auth.error
 });
 
 const AuthSocialComponent = connect(mapStateToProps)(AuthSocial);

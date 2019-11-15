@@ -4,6 +4,20 @@
   height: 5rem;
   padding: 1.5rem;
 
+  .profile-dropdown {
+    min-width: 7.75rem;
+
+    .profile {
+      background-color: transparent;
+      color: black;
+
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+
+  }
+
   &-links {
     @media screen and (max-width: 917px) {
       display: none;

@@ -104,9 +104,9 @@ export class SignUp extends Component {
       usernameError
     } = this.state;
 
-    const { isLoading } = this.props;
+    const { isLoading, redirect } = this.props;
     const spinner = isLoading ? (<Spinner style={{ width: '1.5rem', height: '1.5rem' }} />) : null;
-    const disabled = isLoading;
+    const disabled = isLoading || redirect;
 
     return (
       <div className='login-form'>
