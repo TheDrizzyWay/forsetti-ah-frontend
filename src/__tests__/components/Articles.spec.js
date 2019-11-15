@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Articles } from '../../components';
-import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
+import { articles as articlesMock } from '../../__mocks__/testsMockData/articles.mock-data';
 
 describe('<Articles />', () => {
   test('renders correctly', () => {

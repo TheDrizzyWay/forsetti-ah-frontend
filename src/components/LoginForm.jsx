@@ -39,9 +39,6 @@ class LoginForm extends Component {
     this.setState({ [e.target.id]: e.target.checked });
   }
 
-  /**
-   * Save token to storage and redirect user
-   */
   LoginUser = () => window.location.reload(true);
 
   processLogin = async () => {
@@ -60,7 +57,9 @@ class LoginForm extends Component {
         autoClose: 0,
       });
     } else if (status === 400) {
-      toast(<ToastMessage message={message} />, {
+      const firstErrorKey = Object.keys(message)[0];
+      const errorDisplayed = typeof message === 'object' ? message[firstErrorKey] : message;
+      toast(<ToastMessage message={errorDisplayed} />, {
         type: 'error',
         closeButton: false,
         hideProgressBar: true,
@@ -95,7 +94,7 @@ class LoginForm extends Component {
     const validPasswordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]){8}/;
     if (!validPasswordRegex.test(e.target.value)) {
       this.setState({
-        passwordError: 'Should be alphanumeric and atleast 8 characters long',
+        passwordError: 'Should be alphanumeric and at least 8 characters long',
         isPasswordValid: false,
       });
     } else {
@@ -119,10 +118,6 @@ class LoginForm extends Component {
     const { dispatch } = this.props;
     dispatch(closeModalAction());
     dispatch(openModal());
-  }
-
-  openModal = () => {
-
   }
 
   render() {

@@ -1,4 +1,4 @@
-import articleReducer from '../../reducers/createArticle.reducers';
+import articleReducer from '../../reducers/createArticleReducer';
 import { createArticleActionTypes } from '../../action-types';
 
 const initialState = {

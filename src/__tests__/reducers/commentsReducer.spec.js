@@ -1,4 +1,4 @@
-import commentsReducer from '../../reducers/comments.reducers';
+import commentsReducer from '../../reducers/commentsReducer';
 import { COMMENT_LOADING, POST_COMMENT_ERROR } from '../../action-types';
 
 const initialState = { isLoading: false };

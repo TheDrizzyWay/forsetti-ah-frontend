@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import ResetCancelIcon from '../common/ResetCancelIcon';
-import { forgotPassword, openModalAction } from '../../actions';
+import { forgotPassword, openModalAction, closeModal } from '../../actions';
 import Button from '../common/Button';
 import FormErrorText from '../common/FormErrorText';
 import ToastMessage from '../common/ToastMessage';
@@ -83,6 +83,7 @@ class ForgotPasswordComponent extends React.Component {
    */
   closeModal = () => {
     const { dispatch } = this.props;
+    dispatch(closeModal());
     dispatch(openModalAction());
   }
 
