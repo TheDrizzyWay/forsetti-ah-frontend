@@ -15,6 +15,7 @@
         "jsx-quotes": ["error", "prefer-single"],
         "react/prop-types": 0,
         "no-unused-vars": 0,
+        "linebreak-style": 0,
         "require-jsdoc": [2, {
           "require": {
             "FunctionDeclaration": false,

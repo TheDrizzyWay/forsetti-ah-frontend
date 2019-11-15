@@ -11,7 +11,7 @@ const defaultState = {
  * @param {object} state
  * @param {object} action
  */
-const getNotifications = (state = defaultState, action) => {
+const notificationReducer = (state = defaultState, action) => {
   switch (action.type) {
     case GET_NOTIFICATION:
       return {
@@ -32,4 +32,4 @@ const getNotifications = (state = defaultState, action) => {
   }
 };
 
-export default getNotifications;
+export default notificationReducer;

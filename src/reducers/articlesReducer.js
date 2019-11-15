@@ -6,7 +6,7 @@ const initialState = {
   articlesError: ''
 };
 
-const articleReducer = (state = initialState, action) => {
+const articlesReducer = (state = initialState, action) => {
   const { type, payload, count } = action;
   const { articles } = state;
   switch (type) {
@@ -37,4 +37,4 @@ const articleReducer = (state = initialState, action) => {
   }
 };
 
-export { articleReducer, initialState };
+export { articlesReducer, initialState };

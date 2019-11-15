@@ -2,33 +2,27 @@ import { combineReducers } from 'redux';
 import { navBarReducer } from './navBarReducers';
 import { modalReducer } from './modalReducer';
 import { authReducer } from './authReducer';
-import { articleReducer } from './articlesReducer';
+import { articlesReducer } from './articlesReducer';
 import singleArticleReducer from './articleReducer';
-import createArticleReducer from './createArticle.reducers';
+import createArticleReducer from './createArticleReducer';
 import { resetPasswordReducers } from './resetPasswordReducers';
 import profileReducer from './profileReducers';
 import bookmarkReducer from './bookmarkReducer';
-import notificationReducers from './notifcationReducers';
-import commentsReducer from './comments.reducers';
-
+import notificationReducer from './notificationReducer';
+import commentsReducer from './commentsReducer';
 
 const Reducer = combineReducers({
   showSideDrawer: navBarReducer,
   modal: modalReducer,
   auth: authReducer,
-  articles: articleReducer,
+  articles: articlesReducer,
   article: singleArticleReducer,
   createArticle: createArticleReducer,
-  notifications: notificationReducers,
+  notifications: notificationReducer,
   reset: resetPasswordReducers,
   profile: profileReducer,
   bookmark: bookmarkReducer,
   comments: commentsReducer
 });
 
-export {
-  Reducer,
-  articleReducer,
-  singleArticleReducer,
-  notificationReducers
-};
+export default Reducer;
