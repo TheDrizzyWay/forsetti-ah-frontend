@@ -27,7 +27,7 @@ export const checkInputValues = ({
     errorMessages.passwordError = 'Password is required';
   }
   if (!validator.isLength(password, { min: 8 })) {
-    errorMessages.passwordError = 'Password should be more than 8 characters';
+    errorMessages.passwordError = 'Password should be at least 8 characters long';
   }
   if (!validator.matches(password, /^(?=.*[a-zA-Z])(?=.*[0-9])/i)) {
     errorMessages.passwordError = 'Password must be alphanumeric';

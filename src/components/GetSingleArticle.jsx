@@ -28,7 +28,7 @@ export class GetSingleArticle extends Component {
       token
     } = this.props;
     document.title = title || 'Home to the creative | Authors Haven';
-    getSingleArticle(slug, token);
+    getOneArticle(slug, token);
   }
 
   bookmark = () => {

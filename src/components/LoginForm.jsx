@@ -15,7 +15,7 @@ import Button from './common/Button';
 import Link from './common/Link';
 import FormErrorText from './common/FormErrorText';
 import ToastMessage from './common/ToastMessage';
-import { google, facebook, twitter } from '../assets/images';
+import { google, facebook, twitter } from '../assets';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -42,27 +42,21 @@ class LoginForm extends Component {
   /**
    * Save token to storage and redirect user
    */
-  LoginUser = (rememberToken, token) => {
-    window.localStorage.setItem('token', token);
-    window.localStorage.setItem('rememberToken', rememberToken);
-    window.location.reload(true);
-  }
+  LoginUser = () => window.location.reload(true);
 
   processLogin = async () => {
     const { dispatch } = this.props;
     const { email, password, rememberLogin } = this.state;
     await dispatch(loginUser({ email, password }, rememberLogin));
     const {
-      auth: {
-        status, message, rememberToken, token, userObject
-      }
+      auth: { status, message }
     } = this.props;
     if (status === 200) {
       toast(<ToastMessage message={`${message}. Redirecting...`} />, {
         type: 'success',
         closeButton: false,
         hideProgressBar: true,
-        onClose: () => this.LoginUser(rememberToken, token),
+        onClose: () => this.LoginUser(),
         autoClose: 0,
       });
     } else if (status === 400) {
@@ -196,17 +190,17 @@ Forgot password?
         </Button>
         <div className='social-login'>
           <div className='google-login'>
-            <a href='https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/google'>
+            <a href='https://drizzyforsettibackend.herokuapp.com/api/v1/auth/google'>
               <img src={google} alt='Google' />
             </a>
           </div>
           <div className='facebook-login'>
-            <a href='https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/facebook'>
+            <a href='https://drizzyforsettibackend.herokuapp.com/api/v1/auth/facebook'>
               <img src={facebook} alt='Facebook' />
             </a>
           </div>
           <div className='twitter-login'>
-            <a href='https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/twitter'>
+            <a href='https://drizzyforsettibackend.herokuapp.com/api/v1/auth/twitter'>
               <img src={twitter} alt='Twitter' />
             </a>
           </div>

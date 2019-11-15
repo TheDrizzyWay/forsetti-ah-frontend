@@ -1,25 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { bookmarkArticle } from '../actions';
-import ToastMessage from './common/ToastMessage';
+import React from 'react';
 import {
-  google,
   facebook,
   twitter,
-  clapBlack,
-  clapWhite,
   bookmarkWhite,
   bookmarkBlack,
   hands,
-  user
 } from '../assets';
 
 const ArticleBody = ({
   body,
   claps,
-  id,
   bookmark,
   Bookmarked
 }) => {
@@ -43,19 +33,14 @@ const ArticleBody = ({
               </span>
             </a>
           </span>
-          <span className='col-md-12 col-2 rounded-circle'>
+          <span className='col-md-12 col-2 rounded-circle '>
             <a href='/'>
-              <img src={google} alt='google' className='h-50 py-md-2 social-icon' />
+              <img src={facebook} alt='facebook' className='h-200 py-md-2 social-icon' />
             </a>
           </span>
           <span className='col-md-12 col-2 rounded-circle '>
             <a href='/'>
-              <img src={facebook} alt='facebook' className='h-50 py-md-2 social-icon' />
-            </a>
-          </span>
-          <span className='col-md-12 col-2 rounded-circle '>
-            <a href='/'>
-              <img src={twitter} alt='twitter' className='h-50 py-md-2 social-icon' />
+              <img src={twitter} alt='twitter' className='h-200 py-md-2 social-icon' />
             </a>
           </span>
           <span
