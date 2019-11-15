@@ -3,14 +3,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import Skeleton from 'react-skeleton-loader';
 import { getAritlces, openModalAction } from '../actions';
-import {
-  Articles,
-  SignUpModalComponent,
-  HeaderComponent,
-  Footer,
-  SideDrawerComponent,
-  LoginModalComponent
-} from '../components';
+import { Articles, SignUpModalComponent } from '../components';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -21,11 +14,12 @@ class LandingPage extends Component {
   }
 
   componentDidMount() {
-    const { props: { history: { action } } } = this;
+    const { props: { history: { action, location } } } = this;
     const { getAllArticles, openModal } = this.props;
     const { pageCount } = this.state;
     getAllArticles(pageCount);
-    if (action === 'REPLACE' || action === 'PUSH') openModal();
+
+    if (action === 'REPLACE' || (action === 'PUSH' && !location.state)) openModal();
   }
 
   pageCountHandler = () => {
