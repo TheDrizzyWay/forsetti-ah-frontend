@@ -23,16 +23,15 @@ import {
   bookmarkArticleSuccessHandler,
   bookmarkArticleFailureHandler
 } from './bookmarkActions';
-
 import {
   loadingStateHandler,
-  getAritlcesSuccessHandler,
-  getAritlcesFailureHandler,
-  getAritlces,
+  getArticlesSuccessHandler,
+  getArticlesFailureHandler,
+  getArticles,
   getSingleArticle,
   singleArticle,
-} from './articleActions';
-import { setLoading, createArticle, createArticleError } from './articles.actions';
+} from './articlesActions';
+import { setLoading, createArticle, createArticleError } from './articleActions';
 import { getNotifications, getUserNotifications } from './notifcationActions';
 import {
   closeModal,
@@ -66,9 +65,9 @@ export {
   openTagsModal,
   closeTagsModal,
   loadingStateHandler,
-  getAritlcesSuccessHandler,
-  getAritlcesFailureHandler,
-  getAritlces,
+  getArticlesSuccessHandler,
+  getArticlesFailureHandler,
+  getArticles,
   getSingleArticle,
   singleArticle,
   setLoading,

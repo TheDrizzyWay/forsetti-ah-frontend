@@ -7,24 +7,21 @@ const initialState = {
 };
 
 const articlesReducer = (state = initialState, action) => {
-  const { type, payload, count } = action;
-  const { articles } = state;
+  const {
+    type, payload, nextPage, nextPageValue
+  } = action;
   switch (type) {
     case GET_ARTICLES_BEGIN:
       return {
         ...state,
-        // fix below later
-        articles: [],
+        articles: nextPageValue ? state.articles : [],
         isLoading: true
       };
     case GET_ARTICLES_SUCCESS:
       return {
         ...state,
-        articles: [...new Set([
-          ...articles,
-          ...payload
-        ])],
-        count,
+        articles: [...state.articles, ...payload],
+        nextPage,
         isLoading: false
       };
     case GET_ARTICLES_FAIL:

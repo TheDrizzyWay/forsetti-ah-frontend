@@ -1,10 +1,9 @@
 import navBarActionTypes from './navBarActionTypes';
 import auth from './authActionTypes';
-import article from './article.action-type';
 import modalTypes from './modalTypes';
 import notificationActionTypes from './notificationActionTypes';
 import articleActionTypes from './articleActionTypes';
-import createArticleActionTypes from './articles.action-type';
+import createArticleActionTypes from './createArticleActionTypes';
 import resetPasswordActionTypes from './resetPasswordActionTypes';
 import profileActionTypes from './profileActionTypes';
 import bookmarkActionTypes from './bookmarkActionTypes';
@@ -21,7 +20,7 @@ const {
   SIGNUP_FAILURE,
   LOGOUT_USER
 } = auth;
-const { GET_SINGLE_ARTICLE, ARTICLE_NOT_FOUND } = article;
+const { GET_SINGLE_ARTICLE, ARTICLE_NOT_FOUND } = articleActionTypes;
 const {
   OPEN_MODAL, CLOSE_MODAL, OPEN_TAGS_MODAL, CLOSE_TAGS_MODAL, OPEN_SIGNUP_MODAL, CLOSE_SIGNUP_MODAL
 } = modalTypes;

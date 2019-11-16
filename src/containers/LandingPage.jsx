@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import Skeleton from 'react-skeleton-loader';
-import { getAritlces, openModalAction } from '../actions';
+import { getArticles, openModalAction } from '../actions';
 import { Articles, SignUpModalComponent } from '../components';
 
 class LandingPage extends Component {
@@ -23,20 +23,19 @@ class LandingPage extends Component {
   }
 
   pageCountHandler = () => {
-    const { getAllArticles } = this.props;
+    const { getAllArticles, articles } = this.props;
     this.setState(prevState => ({
       pageCount: prevState.pageCount + 1
-    }), async () => {
+    }), () => {
       const { pageCount } = this.state;
-      await getAllArticles(pageCount);
+      getAllArticles(pageCount, articles.nextPage);
     });
   }
 
   render() {
     const {
       articles,
-      showSideDrawer: { showSideDrawer },
-      modal: { showModal, displayModal }
+      modal: { displayModal }
     } = this.props;
     return (
       <div className='landing-page'>
@@ -86,14 +85,14 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { articles } = state;
-  const { showSideDrawer, modal } = state;
+  const { showSideDrawer, modal, articles } = state;
   return { articles, showSideDrawer, modal };
 };
 const mapDispatchToProps = {
   openModal: openModalAction,
-  getAllArticles: page => getAritlces(page)
+  getAllArticles: (page, nextPageValue) => getArticles(page, nextPageValue)
 };
+
 const LandingPageComponent = connect(mapStateToProps, mapDispatchToProps)(LandingPage);
 
 export {

@@ -25,7 +25,7 @@ class Articles extends Component {
         <div className='col-md-12 text-center my-5'>
           <div className='row justify-content-center'>
             <div className='col-6'>
-              { articles.length % 10 === 0 && (
+              { articles.length % 5 === 0 && (
               <Button
                 className='load-btn rounded-0 font-weight-light'
                 block

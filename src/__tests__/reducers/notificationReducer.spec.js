@@ -1,5 +1,5 @@
 import { GET_NOTIFICATION, LOADING_NOTIFICATION } from '../../action-types';
-import { notificationReducers } from '../../reducers';
+import notificationReducers from '../../reducers/notificationReducer';
 
 const defaultState = {
     notifications: [],
@@ -25,7 +25,7 @@ const payload = [{
 const message = 'This is a test';
 
 describe('Notification Reducer', () => {
-  it('should return defualt state', () => {
+  it('should return default state', () => {
       const reducer = notificationReducers(undefined, { type: '@@INIT'});
 
       expect(reducer).toEqual(defaultState);

@@ -7,7 +7,8 @@ const props = {
     location: {
       pathname: ''
     }
-  }
+  },
+  auth: { token: 'mocktoken' }
 };
 
 describe('Side Drawer', () => {

@@ -62,14 +62,14 @@ class LoginForm extends Component {
         type: 'error',
         closeButton: false,
         hideProgressBar: true,
-        autoClose: 5000,
+        autoClose: 4000,
       });
     } else {
       toast(<ToastMessage message='Something very strange happened' />, {
         type: 'error',
         closeButton: false,
         hideProgressBar: true,
-        autoClose: 5000,
+        autoClose: 4000,
       });
     }
   }

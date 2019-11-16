@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getSingleArticle } from '../actions/articleActions';
-import { postComment, postThreadComment, bookmarkArticle } from '../actions';
+import {
+  postComment, postThreadComment, bookmarkArticle, getSingleArticle
+} from '../actions';
 import ArticleHeader from './ArticleHeader';
 import ArticleBody from './ArticleBody';
 import Comments from './Comments';
