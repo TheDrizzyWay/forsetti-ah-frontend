@@ -41,11 +41,8 @@ export const getCurrentProfile = id => async (dispatch) => {
     switch (status) {
       case 404:
         return 'Not found.';
-
       case 500:
-      case 502:
-        return 'Server error.';
-
+        return 'Server error';
       default:
         return 'Unknown error.';
     }
@@ -81,7 +78,6 @@ export const updateProfile = data => async (dispatch) => {
       case 500:
       case 502:
         return 'Server error.';
-
       default:
         return 'Unknown error.';
     }

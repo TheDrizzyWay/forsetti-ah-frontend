@@ -10,7 +10,8 @@ import {
   hideSideDrawerAction,
   openTagsModal,
   openSignupModalAction,
-  logoutUser
+  logoutUser,
+  searchArticles
 } from '../actions';
 
 const SideDrawer = ({
@@ -41,13 +42,18 @@ const SideDrawer = ({
     window.location.reload();
   };
 
+  const performSearch = (searchTerm) => {
+    dispatch(hideSideDrawerAction());
+    dispatch(searchArticles(searchTerm));
+  };
+
   const items = [
-    { no: 1, name: 'Tech' },
-    { no: 2, name: 'Philosophy' },
-    { no: 3, name: 'Life' },
-    { no: 4, name: 'Politics' },
-    { no: 5, name: 'Nature' },
-    { no: 6, name: 'Music' }
+    { no: 1, name: 'All', onClick: () => window.location.reload() },
+    { no: 2, name: 'Philosophy', onClick: () => performSearch('Philosophy') },
+    { no: 3, name: 'Tech', onClick: () => performSearch('Tech') },
+    { no: 4, name: 'Politics', onClick: () => performSearch('Politics') },
+    { no: 5, name: 'Nature', onClick: () => performSearch('Nature') },
+    { no: 6, name: 'Music', onClick: () => performSearch('Music') }
   ];
 
   const menuItems = [];

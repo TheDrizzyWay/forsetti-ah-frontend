@@ -13,7 +13,8 @@ import {
   openModalAction,
   openTagsModal,
   openSignupModalAction,
-  logoutUser
+  logoutUser,
+  searchArticles
 } from '../../actions';
 import { notificationBlue } from '../../assets';
 import NavBarItems from './NavBarItems';
@@ -39,12 +40,12 @@ const Header = (props) => {
   };
 
   const linkItems = [
-    { no: 1, name: 'Tech' },
-    { no: 2, name: 'Philosophy' },
-    { no: 3, name: 'Life' },
-    { no: 4, name: 'Politics' },
-    { no: 5, name: 'Nature' },
-    { no: 6, name: 'Music' }
+    { no: 1, name: 'All', onClick: () => window.location.reload() },
+    { no: 2, name: 'Philosophy', onClick: () => dispatch(searchArticles('Philosophy')) },
+    { no: 3, name: 'Tech', onClick: () => dispatch(searchArticles('Tech')) },
+    { no: 4, name: 'Politics', onClick: () => dispatch(searchArticles('Politics')) },
+    { no: 5, name: 'Nature', onClick: () => dispatch(searchArticles('Nature')) },
+    { no: 6, name: 'Music', onClick: () => dispatch(searchArticles('Music')) }
   ];
 
   const menuItems = [];

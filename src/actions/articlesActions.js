@@ -3,7 +3,8 @@ import {
   GET_ARTICLES_FAIL,
   GET_ARTICLES_BEGIN,
   GET_SINGLE_ARTICLE,
-  ARTICLE_NOT_FOUND
+  ARTICLE_NOT_FOUND,
+  SEARCH_ARTICLE_SUCCESS,
 } from '../action-types';
 import axios from '../config/axiosConfig';
 
@@ -23,10 +24,15 @@ const getArticlesFailureHandler = (payload = '') => ({
   payload
 });
 
+const searchSuccessHandler = payload => ({
+  type: SEARCH_ARTICLE_SUCCESS,
+  payload
+});
+
 const getArticles = (page, nextPageValue) => async (dispatch) => {
   dispatch(loadingStateHandler(nextPageValue));
   try {
-    const response = await axios.get(`/article?page=${page}`);
+    const response = await axios.get(`/articles?page=${page}`);
     const { rows, nextPage } = response.data.data.articles;
     return dispatch(getArticlesSuccessHandler(rows, nextPage));
   } catch (error) {
@@ -54,10 +60,20 @@ const getSingleArticle = (slug, token) => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       }
     };
-    const res = await axios.get(`/article/${slug}`, config);
+    const res = await axios.get(`/articles/${slug}`, config);
     return dispatch(singleArticle(res));
   } catch (error) {
     return dispatch(articleNotFound(error.message));
+  }
+};
+
+const searchArticles = searchTerm => async (dispatch) => {
+  dispatch(loadingStateHandler());
+  try {
+    const { data } = await axios.get(`/articles/search?tag=${searchTerm}`);
+    return dispatch(searchSuccessHandler(data.data.rows));
+  } catch (error) {
+    return dispatch(getArticlesFailureHandler(error.message));
   }
 };
 
@@ -68,5 +84,6 @@ export {
   loadingStateHandler,
   getArticlesSuccessHandler,
   getArticlesFailureHandler,
-  articleNotFound
+  articleNotFound,
+  searchArticles
 };

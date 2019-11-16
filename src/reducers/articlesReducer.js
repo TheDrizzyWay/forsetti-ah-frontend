@@ -1,4 +1,6 @@
-import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../action-types';
+import {
+  GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN, SEARCH_ARTICLE_SUCCESS
+} from '../action-types';
 
 const initialState = {
   isLoading: false,
@@ -28,6 +30,12 @@ const articlesReducer = (state = initialState, action) => {
       return {
         ...state,
         articlesError: payload,
+        isLoading: false
+      };
+    case SEARCH_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        articles: [...payload],
         isLoading: false
       };
     default:

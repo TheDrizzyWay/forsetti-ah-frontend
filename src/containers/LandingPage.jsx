@@ -51,8 +51,8 @@ class LandingPage extends Component {
                     <div className='col-md-12'>
                       <Skeleton width='100px' height='10px' />
                     </div>
-                    <div className='col-md-12'>
-                      <Skeleton width='100%' height='100px' count={1} />
+                    <div className='col-md-12 pt-2'>
+                      <Skeleton width='100%' height='100px' count={5} />
                     </div>
                   </div>
                 ) : (
@@ -71,7 +71,12 @@ class LandingPage extends Component {
                 )
               }
             </div>
-            <div className='col-md-4' />
+            <div className='col-md-4 border-left border-right'>
+              <div className='row mt-4 ml-2'>
+                <p>ARTICLE OF THE DAY</p>
+                <p>No trending article available yet</p>
+              </div>
+            </div>
           </div>
         </div>
         <SignUpModalComponent isOpen={displayModal} />

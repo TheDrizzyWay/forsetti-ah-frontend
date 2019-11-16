@@ -14,7 +14,7 @@ const bookmarkArticleFailureHandler = status => ({
 
 const bookmarkArticle = articleId => async (dispatch) => {
   try {
-    const response = await axios.post(`/article/${articleId}/bookmark`, articleId, {
+    const response = await axios.post(`/articles/${articleId}/bookmark`, articleId, {
       headers: {
         Authorization: `Bearer ${token}`
       }
