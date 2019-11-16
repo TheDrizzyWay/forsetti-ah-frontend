@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { formatDate } from '../../utils';
 import calender from '../../assets/images/calendar.svg';
@@ -76,15 +75,6 @@ ArticleList.defaultProps = {
   createdAt: '',
   readingTime: '',
   image: ''
-};
-
-ArticleList.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  readingTime: PropTypes.string,
-  createdAt: PropTypes.string,
-  image: PropTypes.string,
-  slug: PropTypes.string.isRequired
 };
 
 export default withRouter(ArticleList);

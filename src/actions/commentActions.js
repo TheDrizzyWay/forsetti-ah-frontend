@@ -27,7 +27,7 @@ const postComment = commentObject => async (dispatch) => {
       commentType: select
     });
 
-    const { data } = await instance.post(`/article/${commentObject.slug}/comment`, requestBody, {
+    const { data } = await instance.post(`/articles/${commentObject.slug}/comment`, requestBody, {
       headers: {
         'Content-Type': 'application/json',
         authorization: `Bearer ${token}`
@@ -56,7 +56,7 @@ const postThreadComment = commentObject => async (dispatch) => {
       commentType: select
     });
 
-    const { data } = await instance.post(`/article/${slug}/comment/${id}/thread`, requestBody, {
+    const { data } = await instance.post(`/articles/${slug}/comment/${id}/thread`, requestBody, {
       headers: {
         'Content-Type': 'application/json',
         authorization: `Bearer ${token}`

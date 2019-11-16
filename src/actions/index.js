@@ -30,6 +30,7 @@ import {
   getArticles,
   getSingleArticle,
   singleArticle,
+  searchArticles
 } from './articlesActions';
 import { setLoading, createArticle, createArticleError } from './articleActions';
 import { getNotifications, getUserNotifications } from './notifcationActions';
@@ -103,5 +104,6 @@ export {
   postComment,
   postCommentError,
   postThreadComment,
-  commentLoading
+  commentLoading,
+  searchArticles
 };

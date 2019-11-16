@@ -5,21 +5,22 @@ import ArticleListCard from './common/ArticleList';
 class Articles extends Component {
   listArticles = () => {
     const { articles, loadMore } = this.props;
+    if (articles.length === 0) return <div className='row'>No articles found</div>;
     return (
       <div className='row'>
         <div className='col-md-12'>
           {
-                articles.map(article => (
-                  <ArticleListCard
-                    key={Math.random(Date.now())}
-                    title={article.title}
-                    description={article.description}
-                    readingTime={article.readingTime}
-                    createdAt={article.createdAt}
-                    image={article.image}
-                    slug={article.slug}
-                  />
-                ))
+              articles.map(article => (
+                <ArticleListCard
+                  key={Math.random(Date.now())}
+                  title={article.title}
+                  description={article.description}
+                  readingTime={article.readingTime}
+                  createdAt={article.createdAt}
+                  image={article.image}
+                  slug={article.slug}
+                />
+              ))
             }
         </div>
         <div className='col-md-12 text-center my-5'>

@@ -34,6 +34,15 @@
     font-weight: 700;
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    .btn-custom {
+      display: inline;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $white-color;
+      outline: none;
+      letter-spacing: 1.5px;
+    }
   }
 
   &-logo-text {

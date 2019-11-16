@@ -45,7 +45,7 @@ const createArticle = articleObject => async (dispatch) => {
     };
 
     if (method === 'post') {
-      const { data } = await axiosInstance.post('/article', formData, {
+      const { data } = await axiosInstance.post('/articles', formData, {
         headers: header
       });
       localStorage.setItem('slug', data.data.article.slug);
@@ -56,7 +56,7 @@ const createArticle = articleObject => async (dispatch) => {
       });
     }
 
-    const { data } = await axiosInstance.put(`/article/${currentSlug}`, formData, {
+    const { data } = await axiosInstance.put(`/articles/${currentSlug}`, formData, {
       headers: header
     });
     const actionType = published ? CREATE_ARTICLE_PUBLISHED : CREATE_ARTICLE;
