@@ -54,6 +54,7 @@ describe('Create Article Reducer', () => {
       createArticle: payload,
       isLoading: false,
       published: true,
+      saved: true
     });
   });
 });

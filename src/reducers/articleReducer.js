@@ -6,7 +6,7 @@ import {
   POST_THREAD_COMMENT
 } from '../action-types';
 
-const defualtState = {
+const defaultState = {
   author: {
     id: '',
     bio: '',
@@ -25,7 +25,7 @@ const defualtState = {
   success: true
 };
 
-const singleArticleReducer = (state = defualtState, action) => {
+const singleArticleReducer = (state = defaultState, action) => {
   const { type } = action;
 
   switch (type) {

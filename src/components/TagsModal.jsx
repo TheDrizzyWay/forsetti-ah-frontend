@@ -30,7 +30,7 @@ class TagsModal extends Component {
     }
 
     render() {
-      const { modal, tags } = this.state;
+      const { tags } = this.state;
       const { className, tagsmodal } = this.props;
       return (
         <div>
