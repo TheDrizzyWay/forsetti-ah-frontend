@@ -15,11 +15,11 @@ class LandingPage extends Component {
 
   componentDidMount() {
     const { props: { history: { action, location } } } = this;
-    const { getAllArticles, openModal } = this.props;
+    const { getAllArticles, openModal, auth } = this.props;
     const { pageCount } = this.state;
     getAllArticles(pageCount);
 
-    if (action === 'REPLACE' || (action === 'PUSH' && !location.state)) openModal();
+    if (action === 'REPLACE' || (action === 'PUSH' && !location.state && !auth.token)) openModal();
   }
 
   pageCountHandler = () => {
@@ -90,8 +90,8 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { showSideDrawer, modal, articles } = state;
-  return { articles, showSideDrawer, modal };
+  const { showSideDrawer, modal, articles, auth } = state;
+  return { articles, showSideDrawer, modal, auth };
 };
 const mapDispatchToProps = {
   openModal: openModalAction,

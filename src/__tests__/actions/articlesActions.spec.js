@@ -9,7 +9,7 @@ import {
 } from '../../actions';
 import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../../action-types';
 
-import { articles as articlesMock, articleFail } from '../../testUtils/testsMockData/articles.mock-data';
+import { articles as articlesMock, articleFail } from '../../__mocks__/testsMockData/articles.mock-data';
 
 describe('Get articles actions', () => {
     const middleware = [thunk];

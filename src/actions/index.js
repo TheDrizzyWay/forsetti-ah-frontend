@@ -32,7 +32,7 @@ import {
   singleArticle,
   searchArticles
 } from './articlesActions';
-import { setLoading, createArticle, createArticleError } from './articleActions';
+import { setLoading, createArticle, createArticleError } from './createArticleActions';
 import { getNotifications, getUserNotifications } from './notifcationActions';
 import {
   closeModal,

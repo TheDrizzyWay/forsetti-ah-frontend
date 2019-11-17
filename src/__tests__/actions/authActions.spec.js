@@ -8,7 +8,7 @@ import {
   onLoginSuccessHandler,
   onFailureHandler,
   logoutUser
-} from '../../actions/authActions';
+} from '../../actions';
 
 
 const user= {

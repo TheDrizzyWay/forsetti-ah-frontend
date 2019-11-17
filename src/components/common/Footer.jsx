@@ -11,7 +11,7 @@ const Footer = () => {
   ];
 
   const listTwo = [
-    { no: 5, name: 'Politics' },
+    { no: 5, name: 'General' },
     { no: 6, name: 'Culture' },
     { no: 7, name: 'Nature' },
     { no: 8, name: 'Music' }

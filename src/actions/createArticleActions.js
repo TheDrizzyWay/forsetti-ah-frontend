@@ -18,10 +18,9 @@ const createArticleError = errorMessage => ({
   payload: errorMessage
 });
 
-const createArticle = articleObject => async (dispatch) => {
+const createArticle = (articleObject, token) => async (dispatch) => {
   try {
     dispatch(setLoading(true));
-    const token = localStorage.getItem('token');
     const {
       tagList, currentSlug, imageChanged, image, published
     } = articleObject;

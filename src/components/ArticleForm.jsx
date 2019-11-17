@@ -47,7 +47,7 @@ class ArticleForm extends Component {
   }
 
   saveArticle = () => {
-    const { props: { createArticle } } = this;
+    const { props: { createArticle, token } } = this;
     const {
       title, hasChanges, model, tagList, image, published, imageChanged
     } = this.state;
@@ -65,7 +65,7 @@ class ArticleForm extends Component {
       };
       if (published) articleObject.published = published;
       this.setState({ hasChanges: false, imageChanged: false });
-      createArticle(articleObject);
+      createArticle(articleObject, token);
     }
   }
 
@@ -80,9 +80,9 @@ class ArticleForm extends Component {
 
   render() {
     const {
-      model, title, imagePreview
+      model, title, imagePreview, published
     } = this.state;
-    const { props: { article: { isLoading, saved, published } } } = this;
+    const { props: { article: { isLoading, saved } } } = this;
     const articleSlug = localStorage.getItem('slug') || null;
     return (
       <div className='mb-5 mt-5'>
@@ -91,7 +91,7 @@ class ArticleForm extends Component {
           Saved.
         </div>
         )}
-        {published && (
+        {(published && saved) && (
           <div className='p-1 rounded text-center text-info display-5'>
             Your article has been published. Click
             {' '}
@@ -107,7 +107,7 @@ to view it.
         />
         <FormGroup>
           {isLoading && (
-            <div className='text-center text-info'>
+            <div className='text-center text-info sticky-top'>
               <Spinner color='primary' />
               {' '}
             Saving...
@@ -163,7 +163,8 @@ to view it.
 }
 
 const mapStateToProps = state => ({
-  article: state.createArticle
+  article: state.createArticle,
+  token: state.auth.token
 });
 
 const mapDispatchToProps = {
