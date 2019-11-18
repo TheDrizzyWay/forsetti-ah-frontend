@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
-  postComment, postThreadComment, bookmarkArticle, getSingleArticle
+  postComment, postThreadComment, bookmarkArticle, getSingleArticle, clapForArticle
 } from '../actions';
 import ArticleHeader from './ArticleHeader';
 import ArticleBody from './ArticleBody';
@@ -19,13 +19,9 @@ export class GetSingleArticle extends Component {
     const {
       getOneArticle,
       match: {
-        params: {
-          slug
-        }
+        params: { slug }
       },
-      article: {
-        title
-      },
+      article: { title },
       token
     } = this.props;
     document.title = title || 'Home to the creative | Authors Haven';
@@ -35,32 +31,33 @@ export class GetSingleArticle extends Component {
   bookmark = () => {
     const {
       createBookmark,
-      article: {
-        id
-      }
+      token,
+      article: { id }
     } = this.props;
-    createBookmark(id);
+
+    createBookmark(id, token);
     this.getSingle();
+  }
+
+  clap = () => {
+    const {
+      token, history, article: { id }, doClap
+    } = this.props;
+
+    if (!token) return history.push('/');
+    return doClap(id, token);
   }
 
   render() {
     const {
-      article: {
-        success
-      },
+      article: { success },
     } = this.props;
-    if (!success) {
-      return (
-        <Notfound text='article' />
-      );
-    }
+    if (!success) return <Notfound text='article' />;
+
     const {
       status,
       article: {
-        author: {
-          image = '',
-          username
-        },
+        author: { image = '', username },
         body,
         claps,
         readingTime,
@@ -68,7 +65,7 @@ export class GetSingleArticle extends Component {
         image: articleImage,
         createdAt,
         id,
-        Bookmarked
+        bookmarked
       },
       comments,
       commentCount,
@@ -77,6 +74,7 @@ export class GetSingleArticle extends Component {
       postNewThreadComment,
       token
     } = this.props;
+
     const {
       match: { params: { slug } }, history
     } = this.props;
@@ -95,8 +93,10 @@ export class GetSingleArticle extends Component {
       id,
       bookmark: this.bookmark,
       status,
-      Bookmarked
+      bookmarked,
+      doClap: this.clap
     };
+
     return (
       <Fragment>
         <ArticleHeader {...headerProps} />
@@ -133,6 +133,8 @@ export const mapDispatchToProps = {
   getOneArticle: getSingleArticle,
   createBookmark: bookmarkArticle,
   postNewComment: postComment,
-  postNewThreadComment: postThreadComment
+  postNewThreadComment: postThreadComment,
+  doClap: clapForArticle
 };
+
 export const SingleArticle = connect(mapStateToProps, mapDispatchToProps)(withRouter(GetSingleArticle));

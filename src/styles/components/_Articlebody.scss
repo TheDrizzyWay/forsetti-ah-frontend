@@ -15,9 +15,10 @@
         font-size: 6vw;
     }
 }
-.bookmarkstyle{
+.bookmarkstyle, .clap-style {
     cursor: pointer;
     border: none;
+    outline: none;
 }
 .bookmark {
     outline: none;
