@@ -65,10 +65,10 @@ export class GetSingleArticle extends Component {
         image: articleImage,
         createdAt,
         id,
-        bookmarked
+        bookmarked,
+        comments,
+        commentCount
       },
-      comments,
-      commentCount,
       commentLoading,
       postNewComment,
       postNewThreadComment,
@@ -97,25 +97,27 @@ export class GetSingleArticle extends Component {
       doClap: this.clap
     };
 
+    const generalCommentProps = {
+      slug,
+      commentLoading,
+      history,
+      token
+    };
+
     return (
       <Fragment>
         <ArticleHeader {...headerProps} />
         <div className='container'>
           <ArticleBody {...bodyProps} />
           <Comments
-            slug={slug}
-            commentLoading={commentLoading}
+            {...generalCommentProps}
             postNewComment={postNewComment}
-            history={history}
-            token={token}
           />
           <CommentSection
-            slug={slug}
+            {...generalCommentProps}
             commentsList={comments}
             commentCount={commentCount}
             postNewThreadComment={postNewThreadComment}
-            history={history}
-            token={token}
           />
         </div>
       </Fragment>

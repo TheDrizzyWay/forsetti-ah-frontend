@@ -6,7 +6,6 @@ import {
 } from '../action-types';
 import instance from '../config/axiosConfig';
 
-const token = localStorage.getItem('token') || null;
 const commentLoading = payload => ({
   type: COMMENT_LOADING,
   payload
@@ -17,7 +16,7 @@ const postCommentError = errorMessage => ({
   payload: errorMessage
 });
 
-const postComment = commentObject => async (dispatch) => {
+const postComment = (commentObject, token) => async (dispatch) => {
   try {
     dispatch(commentLoading(true));
     let { select } = commentObject;
@@ -30,7 +29,7 @@ const postComment = commentObject => async (dispatch) => {
     const { data } = await instance.post(`/articles/${commentObject.slug}/comment`, requestBody, {
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
     });
     dispatch(commentLoading(false));
@@ -45,8 +44,9 @@ const postComment = commentObject => async (dispatch) => {
   }
 };
 
-const postThreadComment = commentObject => async (dispatch) => {
+const postThreadComment = (commentObject, token) => async (dispatch) => {
   try {
+    dispatch(commentLoading(true));
     const { threadComment, slug, id } = commentObject;
     let { select } = commentObject;
     if (select === 'comment') select = 'normal';
@@ -63,11 +63,13 @@ const postThreadComment = commentObject => async (dispatch) => {
       }
     });
 
+    dispatch(commentLoading(false));
     return dispatch({
       type: POST_THREAD_COMMENT,
       payload: data.data
     });
   } catch (err) {
+    dispatch(commentLoading(false));
     const { response: { data: { message } } } = err;
     return dispatch(postCommentError(message));
   }

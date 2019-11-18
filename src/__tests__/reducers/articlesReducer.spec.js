@@ -1,5 +1,4 @@
 import { articlesReducer, initialState } from '../../reducers/articlesReducer';
-
 import { GET_ARTICLES_BEGIN, GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL } from '../../action-types';
 import { articles as articlesMock } from '../../__mocks__/testsMockData/articles.mock-data';
 
@@ -21,11 +20,11 @@ describe('articleReducers', () => {
 
   test('should handle GET_ARTICLES_SUCCESS action', () => {
     expect(articlesReducer(initialState, 
-        { type: GET_ARTICLES_SUCCESS, payload: articlesMock, count: 1 }
+        { type: GET_ARTICLES_SUCCESS, payload: articlesMock, nextPage: true }
     )).toEqual({
         ...initialState,
         articles: articlesMock,
-        count: 1,
+        nextPage: true,
         isLoading: false
     });
   });

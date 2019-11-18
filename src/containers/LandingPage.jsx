@@ -90,8 +90,12 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { showSideDrawer, modal, articles, auth } = state;
-  return { articles, showSideDrawer, modal, auth };
+  const {
+    showSideDrawer, modal, articles, auth
+  } = state;
+  return {
+    articles, showSideDrawer, modal, auth
+  };
 };
 const mapDispatchToProps = {
   openModal: openModalAction,
