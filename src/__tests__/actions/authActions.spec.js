@@ -4,7 +4,7 @@ import axios from '../../config/axiosConfig';
 import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOGOUT_USER } from '../../action-types';
 import {
   loginUser,
-  loadingStateHandler,
+  authLoadingHandler,
   onLoginSuccessHandler,
   onFailureHandler,
   logoutUser
@@ -29,7 +29,7 @@ const mockedStore = configureMockStore(middleware);
 
 describe('Auth actions', () => {
   it('should return correct action for loadingStateHandler ', () => {
-    const action = loadingStateHandler();
+    const action = authLoadingHandler();
     expect(action).toEqual({
       type: LOGIN_USER_BEGIN
     });
@@ -104,10 +104,8 @@ describe('Auth actions', () => {
   it('should return logout user action creator', () => {
     const store = mockedStore({});
 
-    return store.dispatch(logoutUser())
-    .then(() => {
-      const actions = store.getActions();
-      expect(actions[0].type).toEqual(LOGOUT_USER)
-    });
+    store.dispatch(logoutUser());
+    const actions = store.getActions();
+    expect(actions[0].type).toEqual(LOGOUT_USER);
   });
 });

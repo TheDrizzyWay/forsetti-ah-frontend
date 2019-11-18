@@ -4,7 +4,7 @@ import {
   POST_COMMENT_ERROR,
   POST_THREAD_COMMENT
 } from '../action-types';
-import instance from '../config/axiosConfig';
+import axios from '../config/axiosConfig';
 
 const commentLoading = payload => ({
   type: COMMENT_LOADING,
@@ -26,7 +26,7 @@ const postComment = (commentObject, token) => async (dispatch) => {
       commentType: select
     });
 
-    const { data } = await instance.post(`/articles/${commentObject.slug}/comment`, requestBody, {
+    const { data } = await axios.post(`/articles/${commentObject.slug}/comment`, requestBody, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
@@ -56,7 +56,7 @@ const postThreadComment = (commentObject, token) => async (dispatch) => {
       commentType: select
     });
 
-    const { data } = await instance.post(`/articles/${slug}/comment/${id}/thread`, requestBody, {
+    const { data } = await axios.post(`/articles/${slug}/comment/${id}/thread`, requestBody, {
       headers: {
         'Content-Type': 'application/json',
         authorization: `Bearer ${token}`

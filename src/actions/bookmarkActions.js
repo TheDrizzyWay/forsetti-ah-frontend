@@ -9,7 +9,6 @@ const bookmarkArticleFailureHandler = message => ({
   payload: message
 });
 
-
 const bookmarkArticle = (articleId, token) => async (dispatch) => {
   try {
     await axios.post(`/articles/${articleId}/bookmark`, articleId, {

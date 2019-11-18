@@ -13,7 +13,6 @@ export const setProfileLoading = () => ({
   type: PROFILE_LOADING
 });
 
-
 export const currentProfile = data => ({
   type: GET_PROFILE,
   payload: { data }
@@ -76,7 +75,6 @@ export const updateProfile = data => async (dispatch) => {
       case 400:
         return 'Image size should not be greater than 500kb';
       case 500:
-      case 502:
         return 'Server error.';
       default:
         return 'Unknown error.';

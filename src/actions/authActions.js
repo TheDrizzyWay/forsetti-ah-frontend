@@ -9,14 +9,13 @@ import {
   SIGNUP_FAILURE,
   LOGOUT_USER
 } from '../action-types';
-
 import axios from '../config/axiosConfig';
 
 const error = 'You cannot be logged in';
 /**
  * Show loading state
  */
-export const loadingStateHandler = () => ({
+const loadingStateHandler = () => ({
   type: LOGIN_USER_BEGIN
 });
 
@@ -24,7 +23,7 @@ export const loadingStateHandler = () => ({
  * Handles successful api call to the login API
  * @param {object} response
  */
-export const onLoginSuccessHandler = (response = {}, rememberLogin = false) => ({
+const onLoginSuccessHandler = (response = {}, rememberLogin = false) => ({
   type: LOGIN_USER_SUCCESS,
   payload: response,
   rememberLogin
@@ -34,7 +33,7 @@ export const onLoginSuccessHandler = (response = {}, rememberLogin = false) => (
  * Handles axios error with api call to the login API
  * @param {object} response
  */
-export const onFailureHandler = response => ({
+const onFailureHandler = response => ({
   type: LOGIN_USER_FAILURE,
   payload: response
 });
@@ -150,5 +149,8 @@ export {
   signupFailure,
   signUpUser,
   logoutUser,
-  logoutHandler
+  logoutHandler,
+  onFailureHandler,
+  onLoginSuccessHandler,
+  loadingStateHandler
 };

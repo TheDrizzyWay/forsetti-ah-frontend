@@ -1,5 +1,5 @@
 import { createArticleActionTypes } from '../action-types';
-import axiosInstance from '../config/axiosConfig';
+import axios from '../config/axiosConfig';
 
 const {
   CREATE_ARTICLE_LOADING,
@@ -44,7 +44,7 @@ const createArticle = (articleObject, token) => async (dispatch) => {
     };
 
     if (method === 'post') {
-      const { data } = await axiosInstance.post('/articles', formData, {
+      const { data } = await axios.post('/articles', formData, {
         headers: header
       });
       localStorage.setItem('slug', data.data.article.slug);
@@ -55,7 +55,7 @@ const createArticle = (articleObject, token) => async (dispatch) => {
       });
     }
 
-    const { data } = await axiosInstance.put(`/articles/${currentSlug}`, formData, {
+    const { data } = await axios.put(`/articles/${currentSlug}`, formData, {
       headers: header
     });
     const actionType = published ? CREATE_ARTICLE_PUBLISHED : CREATE_ARTICLE;

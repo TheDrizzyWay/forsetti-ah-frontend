@@ -10,10 +10,10 @@ const getNotifications = (payload = [], message = '') => ({
 const notifcationLoader = () => ({
   type: LOADING_NOTIFICATION,
 });
+
 /**
  * Get users notification action creator
  */
-
 const getUserNotifications = () => async (dispatch) => {
   await dispatch(notifcationLoader());
   const token = localStorage.getItem('token');

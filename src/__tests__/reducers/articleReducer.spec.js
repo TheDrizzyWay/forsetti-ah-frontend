@@ -1,10 +1,9 @@
-import { singleArticleReducer } from '../../reducers';
+import singleArticleReducer from '../../reducers/articleReducer';
 import {
   GET_SINGLE_ARTICLE,
   ARTICLE_NOT_FOUND,
   POST_COMMENT_SUCCESS,
-  POST_COMMENT_ERROR,
-  POST_THREAD_COMMENT
+  POST_COMMENT_ERROR
 } from '../../action-types';
 
 const article = {

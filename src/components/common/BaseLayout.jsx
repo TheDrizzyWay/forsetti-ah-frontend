@@ -52,7 +52,6 @@ const BaseLayoutComponent = ({
         <AuthorizationHOCUnit exact path='/editProfile' component={EditProfile} />
         <Route path='/signup' component={SignUpDefault} />
         <Route path='/auth/resetpassword' component={GetResetPasswordToken} />
-        <Route path='/profile' component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>
       <div className='footer'>

@@ -33,7 +33,7 @@ class ResetPasswordComponent extends React.Component {
    * Handle form submission
    */
   onSubmit = async () => {
-    const { dispatch, history, token } = this.props;
+    const { dispatch, token } = this.props;
     const { password, isPasswordInvalid, doPasswordsMatch } = this.state;
     const passwordEmptyRegex = /^$/.test(password);
     const data = {

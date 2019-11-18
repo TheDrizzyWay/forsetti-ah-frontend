@@ -16,7 +16,10 @@ import {
   signupSuccess,
   signupFailure,
   signUpUser,
-  logoutUser
+  logoutUser,
+  onFailureHandler,
+  onLoginSuccessHandler,
+  loadingStateHandler as authLoadingHandler
 } from './authActions';
 import {
   bookmarkArticle,
@@ -84,6 +87,9 @@ export {
   signupSuccess,
   signupFailure,
   signUpUser,
+  onFailureHandler,
+  onLoginSuccessHandler,
+  authLoadingHandler,
   getNotifications,
   getUserNotifications,
   closeModal,
