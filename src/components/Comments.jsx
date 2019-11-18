@@ -25,7 +25,7 @@ class Comments extends Component {
       history
     } = this.props;
     if (!token) return history.push('/');
-    postNewComment({ comment, select, slug });
+    postNewComment({ comment, select, slug }, token);
     return this.setState({
       comment: '',
       select: 'comment'

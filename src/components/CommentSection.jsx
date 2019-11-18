@@ -7,6 +7,7 @@ const CommentSection = (props) => {
     commentCount,
     slug,
     postNewThreadComment,
+    commentLoading,
     token,
     history
   } = props;
@@ -19,6 +20,7 @@ const CommentSection = (props) => {
           postNewThreadComment={postNewThreadComment}
           history={history}
           token={token}
+          commentLoading={commentLoading}
           {...comment}
         />
       ))}

@@ -8,7 +8,6 @@ import {
     getArticlesFailureHandler
 } from '../../actions';
 import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../../action-types';
-
 import { articles as articlesMock, articleFail } from '../../__mocks__/testsMockData/articles.mock-data';
 
 describe('Get articles actions', () => {
@@ -25,28 +24,21 @@ describe('Get articles actions', () => {
         expect(getArticlesSuccessHandler(articlesMock, 0)).toEqual({
             type: GET_ARTICLES_SUCCESS,
             payload: articlesMock,
-            count: 0
+            nextpage: true
         });
     });
 
-    test('should setup article success action object', () => {
-        expect(getArticlesSuccessHandler()).toEqual({
-            type: GET_ARTICLES_SUCCESS,
-            payload: [],
-            count: 0
-        });
-    });
     test('should setup article fail action object', () => {
         expect(getArticlesFailureHandler(articleFail)).toEqual({
             type: GET_ARTICLES_FAIL,
             payload: articleFail
         });
     });
+
     test('should get all articles', () => {
         const payload = {
             data: {
                 articles: {
-                    count: 1,
                     nextpage: true,
                     rows: articlesMock
                 },

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import {
   Button,
-  Spinner,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  Spinner
 } from 'reactstrap';
 import ThreadCommentSection from './ThreadCommentSection';
 import formatDate from '../utils/formatDate.util';
@@ -31,9 +30,7 @@ class SingleComment extends Component {
   }
 
   toggle = (prevState) => {
-    this.setState({
-      open: !prevState.open
-    });
+    this.setState({ open: !prevState.open });
   }
 
   submitThreadComment = () => {
@@ -46,12 +43,13 @@ class SingleComment extends Component {
       history
     } = this.props;
     if (!token) return history.push('/');
+
     postNewThreadComment({
       threadComment,
       select,
       slug,
       id
-    });
+    }, token);
     return this.setState({
       threadComment: '',
       select: 'comment'
@@ -61,6 +59,7 @@ class SingleComment extends Component {
   render() {
     const { open, threadComment, select } = this.state;
     const {
+      commentLoading,
       comment,
       createdAt,
       threadcomments,
@@ -69,6 +68,7 @@ class SingleComment extends Component {
       },
       commentType,
     } = this.props;
+    const spinner = commentLoading ? (<Spinner style={{ width: '1.2rem', height: '1.2rem' }} />) : null;
     const reply = length => (length === 1 ? '1 reply' : `${length} replies`);
     return (
       <div className='card shadow-sm my-3 sbox'>
@@ -130,8 +130,11 @@ class SingleComment extends Component {
                       className='btn btn_primary ml-2 btn-md px-3 mb-0'
                       type='button'
                       onClick={this.submitThreadComment}
+                      disabled={commentLoading}
                     >
                   REPLY
+                      {' '}
+                      {spinner}
                     </Button>
                   </div>
                 </div>

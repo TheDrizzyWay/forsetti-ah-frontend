@@ -40,18 +40,32 @@ const Header = (props) => {
   };
 
   const linkItems = [
-    { no: 1, name: 'All', onClick: () => window.location.reload() },
-    { no: 2, name: 'Philosophy', onClick: () => dispatch(searchArticles('Philosophy')) },
-    { no: 3, name: 'Tech', onClick: () => dispatch(searchArticles('Tech')) },
-    { no: 4, name: 'Politics', onClick: () => dispatch(searchArticles('Politics')) },
-    { no: 5, name: 'Nature', onClick: () => dispatch(searchArticles('Nature')) },
-    { no: 6, name: 'Music', onClick: () => dispatch(searchArticles('Music')) }
+    { no: 1, name: 'All' },
+    { no: 2, name: 'Philosophy' },
+    { no: 3, name: 'Tech' },
+    { no: 4, name: 'Politics' },
+    { no: 5, name: 'Nature' },
+    { no: 6, name: 'Music' }
   ];
 
   const menuItems = [];
+
+  const assignSearchTerms = () => {
+    linkItems.forEach((item, index) => {
+      const currentItem = item;
+      if (index === 0) {
+        currentItem.onClick = () => window.location.reload();
+      } else {
+        currentItem.onClick = () => dispatch(searchArticles(item.name));
+      }
+    });
+  };
+
   const isLoggedIn = () => {
     const { token } = auth;
     const currentPath = history.location.pathname;
+    if (currentPath === '/') assignSearchTerms();
+
     if (token && currentPath === '/article/new') {
       return menuItems.push({ no: 1, text: 'Publish', onClick: openArticleTagsModal });
     }

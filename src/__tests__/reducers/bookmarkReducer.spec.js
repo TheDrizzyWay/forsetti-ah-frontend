@@ -2,7 +2,8 @@ import bookmarkReducer from '../../reducers/bookmarkReducer';
 import { BOOKMARK_ARTICLE_SUCCESS, BOOKMARK_ARTICLE_FAILURE } from '../../action-types';
 
 const initialState = {
-    status: ''
+  bookmarked: false,
+  error: null
   };
 
   describe('Bookmark reducer', () => {
@@ -14,10 +15,20 @@ const initialState = {
   
     it('should return BOOKMARK_ARTICLE_SUCCESS state for loading state', () => {
       expect(bookmarkReducer(initialState, {
-        type: BOOKMARK_ARTICLE_SUCCESS,
-        status: 201
+        type: BOOKMARK_ARTICLE_SUCCESS
       })).toEqual({
-        status: 201
+        bookmarked: true,
+        error: null
+      });
+    });
+
+    it('should return BOOKMARK_ARTICLE_FAILURE state for loading state', () => {
+      expect(bookmarkReducer(initialState, {
+        type: BOOKMARK_ARTICLE_FAILURE,
+        payload: 'error'
+      })).toEqual({
+        bookmarked: false,
+        error: 'error'
       });
     });
   });
