@@ -11,9 +11,10 @@ const ArticleBody = ({
   body,
   claps,
   bookmark,
-  Bookmarked
+  bookmarked,
+  doClap
 }) => {
-  const bookmarkIcon = Bookmarked ? bookmarkBlack : bookmarkWhite;
+  const bookmarkIcon = bookmarked ? bookmarkBlack : bookmarkWhite;
   return (
     <div className='row article-section mt-3 '>
       <div
@@ -25,23 +26,23 @@ const ArticleBody = ({
             mx-4 mx-md-2 mt-sm-4 mb-sm-4 my-lg-6 d-flex flex-column position-sticky px-0'
       >
         <div className='row'>
-          <span className='rounded-circle social col-md-12 col-3 mb-2'>
-            <a href='/' className='align-self-center'>
-              <img src={hands} alt='claps' className='p-1' />
-              <span className='p-0 h-50 text-dark'>
-                { `${claps}` }
-              </span>
-            </a>
+          <span
+            className='rounded-circle social col-md-12 col-3 mb-2 clap-style'
+            onClick={doClap}
+            role='button'
+            onKeyDown={null}
+            tabIndex='0'
+          >
+            <img src={hands} alt='claps' className='p-1' />
+            <span className='p-0 h-50 text-dark'>
+              { `${claps}` }
+            </span>
           </span>
           <span className='col-md-12 col-2 rounded-circle '>
-            <a href='/'>
-              <img src={facebook} alt='facebook' className='h-200 py-md-2 social-icon' />
-            </a>
+            <img src={facebook} alt='facebook' className='h-200 py-md-2 social-icon' />
           </span>
           <span className='col-md-12 col-2 rounded-circle '>
-            <a href='/'>
-              <img src={twitter} alt='twitter' className='h-200 py-md-2 social-icon' />
-            </a>
+            <img src={twitter} alt='twitter' className='h-200 py-md-2 social-icon' />
           </span>
           <span
             className='col-md-12 col-1 rounded-circle bookmark'

@@ -5,6 +5,8 @@ import {
   GET_SINGLE_ARTICLE,
   ARTICLE_NOT_FOUND,
   SEARCH_ARTICLE_SUCCESS,
+  CLAP_SUCCESS,
+  CLAP_FAILURE
 } from '../action-types';
 import axios from '../config/axiosConfig';
 
@@ -27,6 +29,14 @@ const getArticlesFailureHandler = (payload = '') => ({
 const searchSuccessHandler = payload => ({
   type: SEARCH_ARTICLE_SUCCESS,
   payload
+});
+
+const clapSuccessHandler = () => ({
+  type: CLAP_SUCCESS
+});
+
+const clapFailureHandler = () => ({
+  type: CLAP_FAILURE
 });
 
 const getArticles = (page, nextPageValue) => async (dispatch) => {
@@ -56,9 +66,7 @@ const articleNotFound = (error = '') => ({
 const getSingleArticle = (slug, token) => async (dispatch) => {
   try {
     const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
+      headers: { Authorization: `Bearer ${token}` }
     };
     const res = await axios.get(`/articles/${slug}`, config);
     return dispatch(singleArticle(res));
@@ -77,6 +85,17 @@ const searchArticles = searchTerm => async (dispatch) => {
   }
 };
 
+const clapForArticle = (articleId, token) => async (dispatch) => {
+  try {
+    await axios.post(`/articles/${articleId}/claps`, {}, {
+      headers: { authorization: `Bearer ${token}` }
+    });
+    return dispatch(clapSuccessHandler());
+  } catch (error) {
+    return dispatch(clapFailureHandler());
+  }
+};
+
 export {
   getSingleArticle,
   singleArticle,
@@ -85,5 +104,6 @@ export {
   getArticlesSuccessHandler,
   getArticlesFailureHandler,
   articleNotFound,
-  searchArticles
+  searchArticles,
+  clapForArticle
 };

@@ -1,6 +1,8 @@
 import {
   GET_SINGLE_ARTICLE,
   ARTICLE_NOT_FOUND,
+  CLAP_SUCCESS,
+  CLAP_FAILURE,
   POST_COMMENT_SUCCESS,
   POST_COMMENT_ERROR,
   POST_THREAD_COMMENT
@@ -33,9 +35,8 @@ const singleArticleReducer = (state = defaultState, action) => {
       return {
         ...state,
         ...action.article,
-        success: true,
+        success: true
       };
-
     case ARTICLE_NOT_FOUND:
       return {
         ...state,
@@ -45,7 +46,7 @@ const singleArticleReducer = (state = defaultState, action) => {
     case POST_COMMENT_SUCCESS:
       return {
         ...state,
-        comments: [action.payload.comment, ...state.comments],
+        comments: [action.payload.comment, ...state.comments]
       };
     case POST_COMMENT_ERROR:
       return {
@@ -56,7 +57,16 @@ const singleArticleReducer = (state = defaultState, action) => {
       state.comments[state.comments.findIndex(({ id }) => id === action.payload.parentId)]
         .threadcomments.unshift(action.payload);
       return {
+        ...state
+      };
+    case CLAP_SUCCESS:
+      return {
         ...state,
+        claps: state.claps + 1
+      };
+    case CLAP_FAILURE:
+      return {
+        ...state
       };
     default:
       return state;
