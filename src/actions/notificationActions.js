@@ -7,16 +7,15 @@ const getNotifications = (payload = [], message = '') => ({
   payload,
 });
 
-const notifcationLoader = () => ({
+const notificationLoader = () => ({
   type: LOADING_NOTIFICATION,
 });
 
 /**
- * Get users notification action creator
+ * Get users notification action
  */
-const getUserNotifications = () => async (dispatch) => {
-  await dispatch(notifcationLoader());
-  const token = localStorage.getItem('token');
+const getUserNotifications = token => async (dispatch) => {
+  await dispatch(notificationLoader());
   const config = {
     headers: {
       Authorization: `Bearer ${token}`

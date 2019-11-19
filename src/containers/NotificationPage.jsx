@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Skeleton from 'react-skeleton-loader';
-import { Link } from 'react-router-dom';
 import { getUserNotifications } from '../actions';
-import NotificationCard from '../components/common/noficationCard';
+import NotificationCard from '../components/common/notificationCard';
+
 /**
  * Notification Component
  */
 export class Notification extends Component {
-  async componentDidMount() {
-    const { getNotifications } = this.props;
-    await getNotifications();
+  componentDidMount() {
+    const { getNotifications, token } = this.props;
+    getNotifications(token);
   }
 
   render() {
@@ -33,16 +33,14 @@ export class Notification extends Component {
           />
         </div>
       );
-    } else if (isLoading === false && notifications.length === 0) {
-      data = (
-        <h2>You have no notications</h2>
-      );
+    } else if (!isLoading && notifications.length === 0) {
+      data = <h2>You have no notications</h2>;
     } else {
       data = (
-        notifications && notifications.map(({ id, ...notices }) => (
+        notifications && notifications.map(({ id, ...rest }) => (
           <NotificationCard
             key={id}
-            {...notices}
+            {...rest}
           />
         ))
       );
@@ -62,6 +60,7 @@ export class Notification extends Component {
 
 export const mapStateToProps = state => ({
   notifications: state.notifications,
+  token: state.auth.token
 });
 
 const mapDispatchToProps = {

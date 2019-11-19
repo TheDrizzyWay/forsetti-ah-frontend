@@ -26,7 +26,6 @@ const notificationReducer = (state = defaultState, action) => {
       return {
         isLoading: true,
       };
-
     default:
       return state;
   }
