@@ -20,9 +20,6 @@ class EditUserProfile extends Component {
       firstnameError: '',
       lastnameError: ''
     };
-    this.editProfile = this.editProfile.bind(this);
-    this.getImage = this.getImage.bind(this);
-    this.uploadImage = this.uploadImage.bind(this);
   }
 
   componentDidMount() {
@@ -88,7 +85,7 @@ class EditUserProfile extends Component {
     document.getElementById('file_upload').click();
   };
 
-  uploadImage(event) {
+  uploadImage = (event) => {
     const imageFile = event.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
     return this.setState({ image: imageUrl, imageUrl, imageFile });
@@ -97,12 +94,12 @@ class EditUserProfile extends Component {
   /**
    *  Redirect user after successful profile update
    */
-  redirectUser() {
+  redirectUser = () => {
     const { history } = this.props;
     history.push('/profile');
   }
 
-  async editProfile(e) {
+  editProfile = (e) => {
     e.preventDefault();
     const {
       firstname,
@@ -127,7 +124,7 @@ class EditUserProfile extends Component {
     }
     const { profileUpdate } = this.props;
     if (firstnameError === '' && lastnameError === '') {
-      const res = await profileUpdate(userProfile);
+      const res = profileUpdate(userProfile);
       if (res && typeof res !== 'string') {
         toast(<ToastMessage message='Profile Update Successful. Redirecting.....' />, {
           type: 'success',

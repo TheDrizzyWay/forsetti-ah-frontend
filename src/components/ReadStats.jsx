@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Modal,
-  ModalBody
-} from 'reactstrap';
+import { Modal, ModalBody } from 'reactstrap';
 import { connect } from 'react-redux';
 import ArticleListCard from './common/ArticleList';
 import CancelIcon from './common/CancelIcon';

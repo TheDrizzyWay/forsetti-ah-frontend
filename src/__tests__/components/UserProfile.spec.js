@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { UserProfile, mapStateToProps } from '../../components/UserProfile';
+import { UserProfile } from '../../components/UserProfile';
 
 const props = {
-  profile: {
-    data: [{
+  userProfile: {
       firstname: 'Samson',
       lastname: '',
       bio: '',
@@ -14,20 +13,22 @@ const props = {
         title: 'jbfhjbhufbdhdfvbjhf'
       }],
       articlesReadList: []
-    }],
   },
-}
+};
+
 const auth = {
   userObject: {
     id:'ffffabd5-4a5b-45eb-8247-ba47a978070e'
   }
 };
+
 const Params = {params: {
   params: {
     id: 'ffffabd5-4a5b-45eb-8247-ba47a978070e'
   }
 }
 };
+
 describe('<UserProfile />', () => {
 it('renders correctly', () => {
     let UserProfileComponent;
@@ -41,14 +42,6 @@ it('renders correctly', () => {
         expect(UserProfileComponent).toMatchSnapshot();
       });
     });
-})
-
-it('simulate the mapstatetoprops', () => {
-  const action = mapStateToProps(props);
-  
-  expect(action).toEqual({
-    profile: props.profile
-  });
 });
 
 it('does not render correctlly if props are not defined', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import NotificationCard from '../../../components/common/noficationCard';
+import NotificationCard from '../../../components/common/NotificationCard';
 
 describe('Notification Card', () => {
   it('should render NotificationCard correctly', () => {

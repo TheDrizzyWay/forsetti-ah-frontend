@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile, openReadStatsModal } from '../actions/profileActions';
@@ -12,12 +12,11 @@ class UserProfile extends Component {
     const {
       currentProfile,
       auth: {
-        userObject: {
-          id
-        }
+        userObject: { id },
+        token
       }
     } = this.props;
-    currentProfile(id);
+    currentProfile(id, token);
   }
 
   openReadStatsModal = () => {
@@ -26,26 +25,12 @@ class UserProfile extends Component {
   }
 
   render() {
-    const { profile, loading, isReadStatsModalOpen } = this.props;
-    const {
-      props: {
-        profile: {
-          profile: {
-            data = []
-          }
-        },
-        auth: {
-          userObject: {
-            id: userId
-          }
-        }
-      }
-    } = this;
+    const { userProfile } = this.props;
     const {
       firstname,
       lastname,
       username,
-      followers = '',
+      followers,
       articlesRead = '',
       articlesWritten = '',
       articlesReadList = [],
@@ -53,9 +38,9 @@ class UserProfile extends Component {
       bio = '',
       image,
       following
-    } = data[0] || {};
+    } = userProfile;
     return (
-      <React.Fragment>
+      <Fragment>
         <ReadStatsComponent readList={articlesReadList} />
         <div className='Profile py-5'>
           <div className='container'>
@@ -88,14 +73,12 @@ class UserProfile extends Component {
                 <div className='row justify-content-end'>
                   <div className='col-md-3 text-md-right text-center '>
                     <Link to='/editProfile'>
-                      {
-                        <Button
-                          className='btn btn-primary btn-sm btn-color editButtton'
-                          type='button'
-                        >
+                      <Button
+                        className='btn btn-primary btn-sm btn-color editButtton'
+                        type='button'
+                      >
                           EDIT PROFILE
-                        </Button>
-                      }
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -176,9 +159,6 @@ class UserProfile extends Component {
                   <ArticleListComponent
                     key={list.slug}
                     title={list.title}
-                    description={list.description}
-                    readingTime={list.readingTime}
-                    image={list.image}
                     slug={list.slug}
                   />
                 ))}
@@ -186,24 +166,23 @@ class UserProfile extends Component {
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </Fragment>
 
     );
   }
 }
+
 const mapDispatchToProps = {
   currentProfile: getCurrentProfile,
   openModal: openReadStatsModal,
 };
 
-export const mapStateToProps = state => ({
-  profile: state.profile,
-  isReadStatsModalOpen: state.profile.isReadStatsModalOpen,
+const mapStateToProps = state => ({
+  userProfile: state.profile.profile,
   auth: state.auth
 });
 
 const Profile = (connect(mapStateToProps, mapDispatchToProps)(UserProfile));
-
 
 export {
   Profile,

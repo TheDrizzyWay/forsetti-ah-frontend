@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Notification, mapStateToProps } from '../../containers/NotificationPage';
+import { Notification } from '../../containers/NotificationPage';
 
 const payload = {
     notifications: [{
@@ -50,11 +50,12 @@ describe('Notification page', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-  it('should return mapStateToProps object', () => {
-      const action = mapStateToProps(payload);
+
+  // it('should return mapStateToProps object', () => {
+  //     const action = mapStateToProps(payload);
       
-      expect(action).toEqual({
-          notifications: payload.notifications
-      });
-  });
+  //     expect(action).toEqual({
+  //         notifications: payload.notifications
+  //     });
+  // });
 });
