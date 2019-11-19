@@ -9,13 +9,15 @@ const ArticleHeader = ({
   username,
   readingTime,
   articleImage,
-  createdAt
+  createdAt,
+  authorId,
+  userId
 }) => (
   <div className='container'>
     <div className='row mt-5'>
       <div className='col-md-12 text-left'>
         <h2 className='text-uppercase article-title'>
-          { title }
+          {title}
         </h2>
       </div>
     </div>
@@ -33,14 +35,16 @@ const ArticleHeader = ({
           <div className='col-md-12'>
             <p className=''>
               {username}
-              <Button type='button' className='btn btn_primary btn-sm py-0 mx-2'> Follow </Button>
+              {(authorId !== userId) && (
+              <Button type='button' className='btn btn_primary btn-sm py-0 mx-2'>
+                 Follow
+              </Button>
+              )}
             </p>
           </div>
           <div className='col-md-12'>
             <span>
-              {
-              moment(createdAt).format('DD MMM, YYYY')
-            }
+              {moment(createdAt).format('DD MMM, YYYY')}
             ,
               {
                 ` ${Math.ceil(readingTime / 1000.0)} min read`

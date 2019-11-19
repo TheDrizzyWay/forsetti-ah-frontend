@@ -12,8 +12,8 @@ const initialState = {
   isReadStatsModalOpen: false
 };
 
-const profileReducer = (state = initialState, action) => {
-  switch (action.type) {
+const profileReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case PROFILE_LOADING:
       return {
         ...state,
@@ -22,13 +22,13 @@ const profileReducer = (state = initialState, action) => {
     case GET_PROFILE:
       return {
         ...state,
-        profile: action.payload.data,
+        profile: payload[0],
         loading: false
       };
     case UPDATE_PROFILE:
       return {
         ...state,
-        ...action.payload,
+        ...payload,
         loading: false
       };
     case OPEN_READ_STATS_MODAL:

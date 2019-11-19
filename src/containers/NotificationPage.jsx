@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Skeleton from 'react-skeleton-loader';
 import { getUserNotifications } from '../actions';
-import NotificationCard from '../components/common/notificationCard';
+import NotificationCard from '../components/common/NotificationCard';
 
 /**
  * Notification Component
@@ -34,7 +34,7 @@ export class Notification extends Component {
         </div>
       );
     } else if (!isLoading && notifications.length === 0) {
-      data = <h2>You have no notications</h2>;
+      data = <h2>You have no notifications</h2>;
     } else {
       data = (
         notifications && notifications.map(({ id, ...rest }) => (
@@ -58,7 +58,7 @@ export class Notification extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
+const mapStateToProps = state => ({
   notifications: state.notifications,
   token: state.auth.token
 });

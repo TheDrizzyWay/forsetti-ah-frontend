@@ -56,8 +56,9 @@ export class GetSingleArticle extends Component {
 
     const {
       status,
+      user: { id: userId },
       article: {
-        author: { image = '', username },
+        author: { image = '', username, id: authorId },
         body,
         claps,
         readingTime,
@@ -86,6 +87,8 @@ export class GetSingleArticle extends Component {
       readingTime,
       articleImage,
       createdAt,
+      authorId,
+      userId
     };
     const bodyProps = {
       body,
@@ -128,7 +131,8 @@ export class GetSingleArticle extends Component {
 export const mapStateToProps = state => ({
   article: state.article,
   commentLoading: state.comments.isLoading,
-  token: state.auth.token
+  token: state.auth.token,
+  user: state.auth.userObject
 });
 
 export const mapDispatchToProps = {

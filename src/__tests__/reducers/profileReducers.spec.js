@@ -1,6 +1,4 @@
 import profileReducer from '../../reducers/profileReducers';
-import  { getCurrentProfile } from '../../actions/profileActions';
-import  { openReadStatsModal, closeReadStatsModal } from '../../actions/profileActions';
 
 const initialState = {
     isReadStatsModalOpen: false,
@@ -14,7 +12,7 @@ const loadingState = {
     isReadStatsModalOpen: false,
 };
 
-const profile =  {data : {
+const profile =  {
     articlesRead: "You have read 1 article(s).",
     articlesReadList: [],
     articlesWritten: "2 articles written.",
@@ -25,7 +23,6 @@ const profile =  {data : {
     image: "https://res.cloudinary.com/forsetti/image/upload/v1557757972/forsetti/fxv4zhlflmqv0ao9tlna.png",
     lastname: "Abosede",
     username: "Melanie"
- }
 };
 
 const auth = {
@@ -35,10 +32,8 @@ const auth = {
   };
 
 const Params = {params: {
-    params: {
-      id: 'ffffabd5-4a5b-45eb-8247-ba47a978070e'
+    params: { id: 'ffffabd5-4a5b-45eb-8247-ba47a978070e' }
     }
-  }
   };
 
 describe('userProfileReducer', () => {
@@ -57,13 +52,13 @@ test('should handle PROFILE_LOADING action', () => {
 it('should handle GET_PROFILE action', () => {
     const state = profileReducer(initialState, {
         type: 'GET_PROFILE',
-        payload: {data: profile},
-        loading: false,
+        payload: [profile],
+        loading: false
     });
     expect(state).toEqual(
         { profile:
-            { data:
-               { articlesRead: 'You have read 1 article(s).',
+               { 
+                 articlesRead: 'You have read 1 article(s).',
                  articlesReadList: [],
                  articlesWritten: '2 articles written.',
                  articlesWrittenList: [],
@@ -73,12 +68,12 @@ it('should handle GET_PROFILE action', () => {
                  image:
                   'https://res.cloudinary.com/forsetti/image/upload/v1557757972/forsetti/fxv4zhlflmqv0ao9tlna.png',
                  lastname: 'Abosede',
-                 username: 'Melanie' } },
-           loading: false,
-           isReadStatsModalOpen: false, }
+                 username: 'Melanie' 
+                },
+            loading: false,
+            isReadStatsModalOpen: false
+          }
     );
-});
-    isReadStatsModalOpen: false
 });
 
 describe('userProfileReducer', () => {
@@ -101,4 +96,5 @@ describe('userProfileReducer', () => {
       isReadStatsModalOpen: false
     })
   });
-})
+});
+});

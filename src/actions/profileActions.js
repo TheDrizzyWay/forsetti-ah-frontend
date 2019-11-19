@@ -7,15 +7,13 @@ import {
   CLOSE_READ_STATS_MODAL
 } from '../action-types';
 
-const token = window.localStorage.getItem('token');
-
 export const setProfileLoading = () => ({
   type: PROFILE_LOADING
 });
 
 export const currentProfile = data => ({
   type: GET_PROFILE,
-  payload: { data }
+  payload: data
 });
 
 export const openReadStatsModal = () => ({
@@ -26,16 +24,14 @@ export const closeReadStatsModal = () => ({
   type: CLOSE_READ_STATS_MODAL
 });
 
-export const getCurrentProfile = id => async (dispatch) => {
+export const getCurrentProfile = (id, token) => async (dispatch) => {
   dispatch(setProfileLoading());
   try {
-    const res = await axios.get(`/profiles/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+    const { data } = await axios.get(`/profiles/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
     });
-    const { data } = res;
-    dispatch(currentProfile(data));
+
+    dispatch(currentProfile(data.data));
   } catch ({ response: { status } }) {
     switch (status) {
       case 404:
@@ -55,7 +51,7 @@ export const newProfile = data => ({
   payload: { data }
 });
 
-export const updateProfile = data => async (dispatch) => {
+export const updateProfile = (data, token) => async (dispatch) => {
   try {
     const formData = new FormData();
     Object.keys(data).forEach((key) => {
