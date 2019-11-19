@@ -98,7 +98,7 @@ const Header = (props) => {
           {
           auth.token && (
           <div className='mr-3 mr-md-2 d-sm-none d-md-block'>
-            <Link to='/profiles/notification' style={{ color: 'white', fontSize: '1rem', textDecoration: 'none' }}>
+            <Link to='/profile/notifications' style={{ color: 'white', fontSize: '1rem', textDecoration: 'none' }}>
               <p className='d-sm-none d-md-block notification-icon'>
                 <img src={notificationBlue} alt='notification' className='rounded-0 ' style={{ width: '2rem' }} />
                 <span className=''>

@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
-const typeCheck = (type, id, articleSlug) => {
+const typeCheck = (type, articleSlug) => {
   switch (type) {
     case 'article':
       return (
@@ -32,7 +31,7 @@ const typeCheck = (type, id, articleSlug) => {
  * @param {Object} props
  */
 const NotificationCard = ({
-  notification, type, userId, articleSlug
+  notification, type, articleSlug
 }) => (
   <div className='card col-12 col-md-10 rounded-0 shadow-sm mb-3'>
     <div className='card-body row align-items-center p-2'>
@@ -43,7 +42,7 @@ const NotificationCard = ({
       <div className='card-link col-12 col-md-3 ml-0 mt-2 ml-0 order-sm-2'>
         <p className=''>
           {
-              typeCheck(type, userId, articleSlug)
+              typeCheck(type, articleSlug)
           }
         </p>
       </div>

@@ -37,7 +37,7 @@ import {
   clapForArticle
 } from './articlesActions';
 import { setLoading, createArticle, createArticleError } from './createArticleActions';
-import { getNotifications, getUserNotifications } from './notifcationActions';
+import { getNotifications, getUserNotifications } from './notificationActions';
 import {
   closeModal,
   openModal,
