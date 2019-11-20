@@ -9,7 +9,7 @@ export const ArticleList = ({
   <Fragment>
     <div
       className='ArticleList'
-      onClick={() => history.push(`article/${slug}`)}
+      onClick={() => history.push(`/article/${slug}`)}
       role='button'
       tabIndex='-1'
       onKeyDown={null}
@@ -27,9 +27,7 @@ export const ArticleList = ({
           </div>
           )
         }
-      <div
-        className='card list'
-      >
+      <div className='card list'>
         <div className='row'>
           <div className={`${image ? 'col-7 col-md-8' : 'col-12'}`}>
             <div className='row py-2 py-md-3 pl-3 px-md-4'>
