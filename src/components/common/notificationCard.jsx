@@ -9,7 +9,7 @@ const typeCheck = (type, articleSlug) => {
           className='btn btn_primary rounded-1 col-12 my-1 py-1'
           to={`/article/${articleSlug}`}
         >
-         Read
+          Read
         </Link>
       );
     case 'comment':
@@ -18,7 +18,7 @@ const typeCheck = (type, articleSlug) => {
           className='btn btn_primary rounded-1 col-12 my-1 py-1'
           to={`/article/${articleSlug}`}
         >
-         View
+          View
         </Link>
       );
     default:
@@ -33,21 +33,21 @@ const typeCheck = (type, articleSlug) => {
 const NotificationCard = ({
   notification, type, articleSlug
 }) => (
-  <div className='card col-12 col-md-10 rounded-0 shadow-sm mb-3'>
-    <div className='card-body row align-items-center p-2'>
-      <div
-        className='card-text col-12 col-md-9 p-0 order-sm-1 text-left'
-        dangerouslySetInnerHTML={{ __html: notification }}
-      />
-      <div className='card-link col-12 col-md-3 ml-0 mt-2 ml-0 order-sm-2'>
-        <p className=''>
-          {
+    <div className='card col-12 col-md-10 rounded-0 shadow-sm mb-3'>
+      <div className='card-body row align-items-center p-2'>
+        <div
+          className='card-text col-12 col-md-9 p-0 order-sm-1 text-left'
+          dangerouslySetInnerHTML={{ __html: notification }}
+        />
+        <div className='card-link col-12 col-md-3 ml-0 mt-2 ml-0 order-sm-2'>
+          <p className=''>
+            {
               typeCheck(type, articleSlug)
-          }
-        </p>
+            }
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 
 export default NotificationCard;
