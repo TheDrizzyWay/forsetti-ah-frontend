@@ -14,7 +14,7 @@ import Article from '../../containers/Article';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 import { AuthSocialComponent } from '../AuthSocial';
 import SignUpDefault from '../SignUpForm';
-import NotificationPage from '../../containers/NotificationPage';
+// import NotificationPage from '../../containers/NotificationPage';
 
 import { ForgotPassword } from '../resetPassword/ForgotPassword';
 import GetResetPasswordToken from '../resetPassword/GetResetPasswordToken';
@@ -47,7 +47,7 @@ const BaseLayoutComponent = ({
         <AuthorizationHOCUnit exact path='/article/new' component={CreateArticlePage} />
         <Route exact path='/article/:slug' component={Article} />
         <Route path='/auth/social' component={AuthSocialComponent} />
-        <AuthorizationHOCUnit exact path='/profile/notifications' component={NotificationPage} />
+        {/* <AuthorizationHOCUnit exact path='/profile/notifications' component={NotificationPage} /> */}
         <AuthorizationHOCUnit exact path='/profile' component={Profile} />
         <AuthorizationHOCUnit exact path='/editProfile' component={EditProfile} />
         <Route path='/signup' component={SignUpDefault} />
