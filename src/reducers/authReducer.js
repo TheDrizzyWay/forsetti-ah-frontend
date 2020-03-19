@@ -14,7 +14,7 @@ const initialState = {
   isLoading: false,
   status: '',
   message: '',
-  userObject: '',
+  userObject: { id: '' },
   token: '',
   rememberToken: false,
   redirect: false,

@@ -76,6 +76,7 @@ class UserProfile extends Component {
                       <Button
                         className='btn btn-primary btn-sm btn-color editButtton'
                         type='button'
+                        disabled
                       >
                           EDIT PROFILE
                       </Button>

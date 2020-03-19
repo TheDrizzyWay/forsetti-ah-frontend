@@ -15,7 +15,7 @@
     "start": "cross-env NODE_ENV=production node app.js",
     "webpack": "webpack",
     "eslint-fix": "eslint --fix \"src/**/*.js\"",
-    "precypress": "npm run build && npm run start",
+    "precypress": "npm run build && npm start",
     "cypress:open:dev": "cypress open",
     "cypress:run:dev": "cypress run",
     "cypress:run:prod:record": "$(npm bin)/cypress run --record",
