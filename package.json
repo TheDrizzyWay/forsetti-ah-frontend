@@ -43,7 +43,7 @@
     "babel-jest": "^24.9.0",
     "clean-webpack-plugin": "2.0.1",
     "csv-loader": "3.0.2",
-    "cypress": "^3.6.1",
+    "cypress": "^12.7.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^5.16.0",
