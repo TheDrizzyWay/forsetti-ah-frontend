@@ -67,7 +67,7 @@
     "@babel/runtime": "7.4.4",
     "webpack": "5.94.0",
     "webpack-cli": "5.1.4",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "babel-loader": "8.0.5",
     "bootstrap": "^4.3.1",
     "cross-env": "5.2.0",
