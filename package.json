@@ -65,7 +65,7 @@
   "dependencies": {
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "7.27.0",
-    "webpack": "5.94.0",
+    "webpack": "5.105.1",
     "webpack-cli": "5.1.4",
     "axios": "^1.12.2",
     "babel-loader": "8.0.5",
